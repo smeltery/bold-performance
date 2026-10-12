@@ -54,7 +54,12 @@ const entries = [
       >
         <span>
           <strong>{entry.title}</strong>
-          <small>{entry.description}</small>
+          <small>
+            {entry.description.includes("Scottsdale") && (
+              <Icon name="cactus" size={14} />
+            )}{" "}
+            {entry.description}
+          </small>
         </span>
         <span class="search-group">{entry.group}</span>
       </a>

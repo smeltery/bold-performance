@@ -1,3 +1,7 @@
+---
+import CareerMarks from "./CareerMarks.astro";
+---
+
 <section id="brock" class="coach section">
   <div class="coach-art">
     <img
@@ -42,34 +46,7 @@
         <strong>Personalized coaching</strong>
       </span>
     </div>
-    <div class="career-marks" aria-label="Professional baseball background">
-      <div>
-        <img
-          src="/assets/diamondbacks.svg"
-          alt=""
-          width="48"
-          height="48"
-          loading="lazy"
-        />
-        <span>
-          <strong>Arizona Diamondbacks</strong>
-          <small>Former organization pitcher</small>
-        </span>
-      </div>
-      <a href="https://www.milb.com/player/brock-jones-686809">
-        <img
-          src="/assets/milb.svg"
-          alt=""
-          width="60"
-          height="40"
-          loading="lazy"
-        />
-        <span>
-          <strong>Minor League Baseball</strong>
-          <small>View Brock’s playing record</small>
-        </span>
-      </a>
-    </div>
+    <CareerMarks />
     <div class="coach-links">
       <a
         class="text-link"
@@ -86,34 +63,3 @@
     </div>
   </div>
 </section>
-
-<style>
-  .career-marks {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin: 28px 0;
-  }
-  .career-marks > div,
-  .career-marks > a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .career-marks img {
-    object-fit: contain;
-    flex-shrink: 0;
-  }
-  .career-marks strong,
-  .career-marks small {
-    display: block;
-    font-size: 11px;
-    line-height: 1.6;
-  }
-  .career-marks small {
-    color: var(--muted);
-  }
-  .career-marks a:hover strong {
-    text-decoration: underline;
-  }
-</style>

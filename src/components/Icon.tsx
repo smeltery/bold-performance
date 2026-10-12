@@ -1,4 +1,6 @@
 const paths = {
+  cactus:
+    "M10 21V5a2 2 0 0 1 4 0v16 M10 13H7a3 3 0 0 1-3-3V7 M14 16h3a3 3 0 0 0 3-3V9 M7 21h10",
   search: "M16 10a6 6 0 1 1-12 0 6 6 0 0 1 12 0 M14.5 14.5 21 21",
   activity: "M2 12h5l3-8 4 16 3-8h5",
   scale:
@@ -36,7 +38,7 @@ export default function Icon({
 }) {
   return (
     <svg
-      className="icon"
+      className={name === "cactus" ? "icon cactus" : "icon"}
       width={size}
       height={size}
       viewBox="0 0 24 24"

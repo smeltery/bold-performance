@@ -1,6 +1,7 @@
 ---
 import PageDetails from "../components/PageDetails.astro";
 import Layout from "../layouts/Layout.astro";
+import CareerMarks from "../components/CareerMarks.astro";
 import Icon from "../components/Icon";
 import Faq from "../components/Faq.astro";
 import Coach from "../components/Coach.astro";
@@ -12,7 +13,7 @@ import Approach from "../components/Approach.astro";
   <section class="hero">
     <div class="hero-copy">
       <p class="eyebrow">
-        <span class="dot"></span> PERSONAL TRAINING · SCOTTSDALE, AZ
+        <Icon name="cactus" size={16} /> PERSONAL TRAINING · SCOTTSDALE, AZ
       </p>
       <h1>
         Built for more.
@@ -37,6 +38,7 @@ import Approach from "../components/Approach.astro";
           <strong>NASM certified</strong>Coaching with a foundation
         </span>
       </div>
+      <CareerMarks />
     </div>
     <div class="hero-image">
       <img
@@ -128,8 +130,7 @@ import Approach from "../components/Approach.astro";
         </li>
       </ol>
       <p class="contact-location">
-        <Icon name="location" size={16} /> Personalized coaching · Scottsdale,
-        AZ
+        <Icon name="cactus" size={16} /> Personalized coaching · Scottsdale, AZ
       </p>
     </aside>
   </section>
