@@ -1,0 +1,59 @@
+---
+import { pageDetails } from "../content/page-details";
+const { page } = Astro.props as { page: string };
+const detail = pageDetails[page];
+---
+
+<section class="section page-details">
+  <div class="detail-intro">
+    <p class="eyebrow">A LITTLE MORE CLARITY</p>
+    <h2>{detail.title}</h2>
+    <p>{detail.intro}</p>
+  </div>
+  <div class="detail-grid">
+    {detail.items.map(([title, copy], index) => (
+      <article>
+        <span class="eyebrow">0{index + 1}</span>
+        <h3>{title}</h3>
+        <p>{copy}</p>
+      </article>
+    ))}
+  </div>
+</section>
+<style>
+  .page-details {
+    border-top: 1px solid var(--line);
+  }
+  .detail-intro {
+    max-width: 780px;
+    margin-bottom: 48px;
+  }
+  .detail-intro h2 {
+    font-size: clamp(40px, 4vw, 60px);
+    margin-bottom: 24px;
+  }
+  .detail-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .detail-grid article {
+    border-top: 2px solid var(--cyan);
+    padding-top: 24px;
+  }
+  .detail-grid h3 {
+    font-size: 30px;
+    line-height: 1.1;
+    margin: 18px 0;
+  }
+  .page-details p:not(.eyebrow) {
+    font-size: 15px;
+    color: var(--muted);
+  }
+  @media (max-width: 800px) {
+    .detail-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+</style>
