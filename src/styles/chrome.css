@@ -1,0 +1,135 @@
+header {
+  height: 98px;
+  padding: 0 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.brand .wordmark {
+  width: 115px;
+  height: 42px;
+}
+nav {
+  display: flex;
+  gap: 34px;
+  font-size: 12px;
+  font-weight: 600;
+}
+nav a:hover {
+  color: #258298;
+}
+.menu-toggle {
+  display: none;
+}
+#mobile-nav[hidden] {
+  display: none;
+}
+footer {
+  padding: 64px 6vw 24px;
+  background: var(--ink);
+  color: #fff;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 0.7fr 1fr;
+  gap: 30px;
+  padding-bottom: 54px;
+}
+.footer-brand {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 0.9;
+}
+.footer-brand span {
+  display: block;
+  font:
+    700 11px "DM Sans",
+    sans-serif;
+  letter-spacing: 0.25em;
+  color: var(--cyan);
+  margin-top: 10px;
+}
+.footer-top p {
+  color: #bdc4c2;
+  font-size: 15px;
+}
+.footer-top > div {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 12px;
+}
+.footer-top > div span {
+  color: #bdc4c2;
+}
+.footer-bottom {
+  border-top: 1px solid #3e4546;
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 10px;
+  color: #bdc4c2;
+}
+@media (max-width: 800px) {
+  header {
+    height: 78px;
+    padding: 0 22px;
+  }
+  header > nav,
+  header > .desktop-cta {
+    display: none;
+  }
+  .brand img {
+    width: 65px;
+    height: auto;
+  }
+  .menu-toggle {
+    display: flex;
+    gap: 20px;
+    background: none;
+    border: 1px solid var(--line);
+    padding: 12px;
+    font-size: 12px;
+  }
+  #mobile-nav {
+    display: flex;
+    position: absolute;
+    top: 78px;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 25px;
+    flex-direction: column;
+    border-bottom: 1px solid var(--line);
+    gap: 0;
+  }
+  #mobile-nav a {
+    padding: 16px 0;
+  }
+  .section {
+    padding: 64px 24px;
+  }
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+  }
+  .footer-bottom {
+    flex-wrap: wrap;
+    line-height: 1.8;
+  }
+  footer {
+    padding: 55px 24px 25px;
+  }
+}

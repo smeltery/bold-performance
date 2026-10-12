@@ -1,0 +1,195 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Contact from "../components/Contact";
+import Faq from "../components/Faq.astro";
+import Coach from "../components/Coach.astro";
+const formId = import.meta.env.PUBLIC_FORMSPREE_ID?.trim();
+const services = [
+  [
+    "01",
+    "Build real strength.",
+    "Personal training",
+    "One-on-one coaching built around your goals. Develop strength, sharpen technique, and build the consistency that turns effort into progress.",
+  ],
+  [
+    "02",
+    "Move with confidence.",
+    "Movement & mobility",
+    "Give the fundamentals the attention they deserve. Work on movement quality, control, and a stronger foundation for everyday life.",
+  ],
+  [
+    "03",
+    "Raise your game.",
+    "Performance development",
+    "Bring intention to your training. Develop the strength, movement, and discipline to show up better for the demands of your sport.",
+  ],
+];
+---
+
+<Layout>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">
+        <span class="dot"></span> PERSONAL TRAINING · SCOTTSDALE, AZ
+      </p>
+      <h1>
+        Built for more.
+        <br />
+        Trained for <em>life.</em>
+      </h1>
+      <p class="hero-description">
+        Get stronger. Move better. Become the version of yourself you know is
+        possible—with personalized coaching from Brock Jones.
+      </p>
+      <a class="button" href="#contact">
+        Start your journey <span>↗</span>
+      </a>
+      <a class="text-link" href="#coaching">
+        Find your focus <span>↓</span>
+      </a>
+      <div class="hero-credentials">
+        <span>
+          <strong>Former pro athlete</strong>Professional playing experience
+        </span>
+        <span>
+          <strong>NASM certified</strong>Coaching with a foundation
+        </span>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img
+        src="/assets/training.jpg"
+        alt="Barbells and strength training equipment in a gym"
+        width="1400"
+        height="1100"
+        fetchpriority="high"
+      />
+      <span class="image-label">PURPOSE IN EVERY REP.</span>
+      <div class="image-caption">
+        <span>
+          THE WORK IS YOURS.
+          <br />
+          THE PLAN? WE BUILD IT TOGETHER.
+        </span>
+        <span class="outlined-arrow">↗</span>
+      </div>
+    </div>
+  </section>
+  <div class="principles">
+    <span>PERSONALIZED COACHING</span>
+    <i>✳</i>
+    <span>INTENTIONAL MOVEMENT</span>
+    <i>✳</i>
+    <span>LASTING STRENGTH</span>
+    <i>✳</i>
+    <span>REAL ACCOUNTABILITY</span>
+  </div>
+  <section id="coaching" class="section coaching">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">01 / FIND YOUR FOCUS</p>
+        <h2>
+          Your goals.
+          <br />A stronger game plan.
+        </h2>
+      </div>
+      <p>
+        You don’t need another random workout.
+        <br />
+        You need coaching that meets you where you are—and helps you move
+        forward.
+      </p>
+    </div>
+    <div class="service-grid">
+      {services.map(([number, title, label, copy]) => (
+        <article>
+          <div class="service-top">
+            <span>{number}</span>
+            <span>↗</span>
+          </div>
+          <p class="eyebrow">{label}</p>
+          <h3>{title}</h3>
+          <p>{copy}</p>
+          <a href="#contact">
+            Let’s talk training <span>↗</span>
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+  <Coach />
+  <section id="approach" class="section approach">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">03 / THE WAY FORWARD</p>
+        <h2>
+          Less guesswork.
+          <br />
+          More purpose.
+        </h2>
+      </div>
+      <a class="button" href="#contact">
+        Take the first step ↗
+      </a>
+    </div>
+    <div class="steps">
+      <article>
+        <span>01 — CONNECT</span>
+        <h3>Start with your why.</h3>
+        <p>
+          Tell Brock where you are, what you’re working toward, and what has
+          held you back.
+        </p>
+      </article>
+      <article>
+        <span>02 — BUILD</span>
+        <h3>Make it personal.</h3>
+        <p>
+          Discuss your experience, schedule, and goals to shape a training
+          approach that fits your life.
+        </p>
+      </article>
+      <article>
+        <span>03 — SHOW UP</span>
+        <h3>Put purpose into practice.</h3>
+        <p>
+          Train with guidance and accountability. Keep building strength,
+          confidence, and consistency.
+        </p>
+      </article>
+    </div>
+  </section>
+  <Faq />
+  <section id="contact" class="section contact">
+    <div>
+      <p class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p>
+      <h2>
+        Ready to
+        <br />
+        get <em>after it?</em>
+      </h2>
+      <p>
+        You bring the commitment. Brock brings the coaching.
+        <br />
+        Let’s talk about what you want to build.
+      </p>
+      <a class="button light" href="sms:+13608272046">
+        Text Brock to get started ↗
+      </a>
+    </div>
+    <div class="contact-details">
+      {formId && <Contact formId={formId} client:visible />}
+      <p class="eyebrow">LET’S CONNECT</p>
+      <a href="tel:+13608272046">
+        (360) 827-2046 <span>↗</span>
+      </a>
+      <a class="email" href="mailto:boldperformancellc@gmail.com">
+        boldperformancellc@gmail.com <span>↗</span>
+      </a>
+      <a href="https://www.instagram.com/bold_performanceaz/">
+        @bold_performanceaz <span>↗</span>
+      </a>
+      <p>Personal training · Scottsdale, AZ</p>
+    </div>
+  </section>
+</Layout>

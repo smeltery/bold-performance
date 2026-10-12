@@ -1,0 +1,66 @@
+---
+import Header from "../components/Header.astro";
+import "../styles/base.css";
+import "../styles/chrome.css";
+import "../styles/hero.css";
+import "../styles/sections.css";
+import "../styles/conversion.css";
+import "../styles/responsive.css";
+const {
+  title = "Bold Performance | Personal Training with Brock Jones",
+  description = "Build strength that lasts. Personalized one-on-one coaching with Brock Jones, former pro athlete and NASM-certified trainer in Scottsdale, Arizona.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#161c1d" />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <a class="skip" href="#main">
+      Skip to content
+    </a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <footer>
+      <div class="footer-top">
+        <a class="footer-brand" href="/">
+          BOLD<span>PERFORMANCE</span>
+        </a>
+        <p>
+          Train with purpose.
+          <br />
+          Live with strength.
+        </p>
+        <div>
+          <a href="/#coaching">Coaching</a>
+          <a href="/#brock">Meet Brock</a>
+          <a href="/#contact">Get in touch</a>
+        </div>
+        <div>
+          <a href="https://www.instagram.com/bold_performanceaz/">
+            Instagram ↗
+          </a>
+          <a href="mailto:boldperformancellc@gmail.com">Email Brock ↗</a>
+          <span>Scottsdale, Arizona</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© {new Date().getFullYear()} Bold Performance</span>
+        <span>Rooted in faith. Driven by purpose.</span>
+        <a href="/privacy">Privacy</a>
+      </div>
+    </footer>
+  </body>
+</html>

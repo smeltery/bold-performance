@@ -1,0 +1,54 @@
+<header>
+  <a class="brand" href="/" aria-label="Bold Performance home">
+    <img src="/assets/logo.svg" alt="" width="86" height="44" />
+    <img
+      class="wordmark"
+      src="/assets/wordmark.svg"
+      alt=""
+      width="115"
+      height="42"
+    />
+  </a>
+  <nav aria-label="Main navigation">
+    <a href="/#coaching">Coaching</a>
+    <a href="/#brock">Meet Brock</a>
+    <a href="/#approach">The approach</a>
+  </nav>
+  <a class="button small desktop-cta" href="/#contact">
+    Let’s get to work <span>↗</span>
+  </a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav">
+    Menu <span>+</span>
+  </button>
+  <nav id="mobile-nav" aria-label="Mobile navigation" hidden>
+    <a href="/#coaching">Coaching</a>
+    <a href="/#brock">Meet Brock</a>
+    <a href="/#approach">The approach</a>
+    <a href="/#contact">Start your journey ↗</a>
+  </nav>
+</header>
+<script>
+  const button = document.querySelector<HTMLButtonElement>(".menu-toggle")!;
+  const menu = document.querySelector<HTMLElement>("#mobile-nav")!;
+  function close() {
+    button.setAttribute("aria-expanded", "false");
+    menu.hidden = true;
+  }
+  button.addEventListener("click", () => {
+    const open = button.getAttribute("aria-expanded") === "true";
+    button.setAttribute("aria-expanded", String(!open));
+    menu.hidden = open;
+  });
+  menu
+    .querySelectorAll("a")
+    .forEach((link) => link.addEventListener("click", close));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !menu.hidden) {
+      close();
+      button.focus();
+    }
+  });
+  matchMedia("(min-width: 801px)").addEventListener("change", (event) => {
+    if (event.matches) close();
+  });
+</script>

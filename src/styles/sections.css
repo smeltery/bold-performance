@@ -1,0 +1,143 @@
+.principles {
+  background: var(--cyan);
+  padding: 23px 6vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.principles i {
+  font-size: 20px;
+  font-style: normal;
+}
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 44px;
+}
+.section-heading h2 {
+  margin-bottom: 0;
+}
+.section-heading > p {
+  max-width: 360px;
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 0;
+}
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.service-grid article {
+  padding: 30px 30px 34px 0;
+}
+.service-grid article + article {
+  border-left: 1px solid var(--line);
+  padding-left: 30px;
+}
+.service-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 48px;
+}
+.service-top span:last-child {
+  font-size: 24px;
+  color: #258298;
+}
+.service-grid .eyebrow {
+  font-size: 9px;
+  color: #258298;
+}
+.service-grid h3 {
+  margin-bottom: 18px;
+}
+.service-grid article > p:not(.eyebrow) {
+  font-size: 13px;
+  color: var(--muted);
+  min-height: 95px;
+}
+.service-grid a {
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+.coach {
+  background: #e9ede8;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8vw;
+  align-items: center;
+}
+.coach-art {
+  background: #fff;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 45px;
+  position: relative;
+}
+.coach-art img {
+  width: 100%;
+  height: auto;
+}
+.coach-art > span {
+  font-size: 8px;
+  letter-spacing: 0.17em;
+  text-align: center;
+  margin-top: 22px;
+}
+.coach-copy h2 {
+  font-size: clamp(44px, 4.1vw, 64px);
+  margin-bottom: 28px;
+}
+.coach-copy > p {
+  font-size: 13px;
+  color: var(--muted);
+}
+.coach-copy .lead {
+  font-size: 16px;
+  color: var(--ink);
+}
+.coach-copy .eyebrow {
+  color: var(--ink);
+  font-size: 10px;
+}
+.coach-facts {
+  display: flex;
+  gap: 45px;
+  border-top: 1px solid #ccd2cc;
+  padding: 25px 0;
+}
+.coach-facts span {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 29px;
+  line-height: 1.1;
+}
+.coach-facts strong {
+  font:
+    400 10px "DM Sans",
+    sans-serif;
+  color: var(--muted);
+}
+.coach-copy .text-link {
+  font-size: 11px;
+}
+
+.coach-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}

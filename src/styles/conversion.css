@@ -1,0 +1,107 @@
+.approach {
+  background: var(--ink);
+  color: #fff;
+}
+.approach .eyebrow {
+  color: var(--cyan);
+}
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 45px;
+  margin-top: 65px;
+}
+.steps article {
+  border-top: 1px solid #475152;
+  padding-top: 25px;
+}
+.steps span {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--cyan);
+}
+.steps h3 {
+  font-size: 30px;
+  margin: 27px 0 16px;
+}
+.steps p {
+  font-size: 13px;
+  color: #bdc4c2;
+}
+.faq {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 70px;
+}
+.faq details {
+  border-bottom: 1px solid var(--line);
+  padding: 22px 0;
+}
+.faq details:first-child {
+  border-top: 1px solid var(--line);
+}
+summary {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  list-style: none;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+summary span {
+  color: #258298;
+}
+details[open] summary span {
+  transform: rotate(45deg);
+}
+details p {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 16px 32px 0 0;
+}
+.contact {
+  background: #3f9eb4;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9vw;
+}
+.contact h2 {
+  font-size: clamp(64px, 6.8vw, 100px);
+  margin-bottom: 24px;
+}
+.contact h2 em {
+  color: white;
+}
+.contact p {
+  font-size: 13px;
+}
+.contact .eyebrow {
+  font-size: 10px;
+}
+.button.light {
+  background: #fff;
+  margin-top: 16px;
+}
+.contact-details {
+  align-self: center;
+}
+.contact-details > a {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  border-bottom: 1px solid #236d804d;
+  padding: 20px 0;
+  font-size: 20px;
+}
+.contact-details > a.email {
+  font-size: clamp(12px, 1.4vw, 19px);
+  overflow-wrap: anywhere;
+}
+.contact-details > p:last-child {
+  margin-top: 25px;
+  font-size: 11px;
+}

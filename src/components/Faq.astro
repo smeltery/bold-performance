@@ -1,0 +1,38 @@
+<section class="section faq">
+  <div>
+    <p class="eyebrow">A LITTLE CLARITY</p>
+    <h2>
+      Before your
+      <br />
+      first rep.
+    </h2>
+  </div>
+  <div>
+    {[
+      [
+        "Do I need training experience?",
+        "You don’t need an athletic background to start the conversation. Tell Brock about your experience and goals so you can discuss the right starting point.",
+      ],
+      [
+        "Where does training take place?",
+        "Bold Performance is based in Scottsdale, Arizona. Contact Brock to discuss current training locations and scheduling.",
+      ],
+      [
+        "What does coaching cost?",
+        "Reach out to Brock for current pricing and availability. You’ll be able to discuss your goals and options before committing.",
+      ],
+      [
+        "How do I get started?",
+        "Send a text, call, or email Brock using the details below. Share a little about your goals and ask about the next step.",
+      ],
+    ].map(([question, answer]) => (
+      <details>
+        <summary>
+          {question}
+          <span>+</span>
+        </summary>
+        <p>{answer}</p>
+      </details>
+    ))}
+  </div>
+</section>
