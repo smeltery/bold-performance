@@ -42,3 +42,7 @@ Get Brock's approval before adding new offers or claims. Training copy does not
 promise medical treatment or injury rehabilitation.
 
 [All documentation](README.md)
+
+The favicon uses a dedicated shield-only composition for legibility at tab size.
+The NASM mark is sourced from its official website and accompanies Brock’s
+training certification; it is not a partnership badge.
