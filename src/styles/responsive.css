@@ -127,12 +127,6 @@
     grid-template-columns: 1fr;
     gap: 50px;
   }
-  .contact-details > a {
-    font-size: 20px;
-  }
-  .contact-details > a.email {
-    font-size: 15px;
-  }
 }
 @media (max-width: 370px) {
   .hero h1 {

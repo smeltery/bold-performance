@@ -86,27 +86,71 @@ details p {
   background: #fff;
   margin-top: 16px;
 }
-.contact-details {
-  align-self: center;
-}
-.contact-details > a {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  border-bottom: 1px solid #236d804d;
-  padding: 20px 0;
-  font-size: 20px;
-}
-.contact-details > a.email {
-  font-size: clamp(12px, 1.4vw, 19px);
-  overflow-wrap: anywhere;
-}
-.contact-details > p:last-child {
-  margin-top: 25px;
-  font-size: 11px;
-}
 
-.contact-details > a {
-  justify-content: flex-start;
-  gap: 16px;
+.contact {
+  align-items: center;
+}
+.contact .contact-lead {
+  font-size: 16px;
+  max-width: 530px;
+}
+.contact .contact-reassurance {
+  font-size: 11px;
+  margin: 18px 0 0;
+}
+.contact .button {
+  justify-content: center;
+  gap: 14px;
+}
+.contact-preview {
+  background: #f6f6f1;
+  padding: clamp(26px, 3vw, 44px);
+  border-top: 4px solid var(--ink);
+}
+.contact-preview h3 {
+  font-size: 36px;
+  line-height: 1.05;
+}
+.contact-preview ol {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0;
+  counter-reset: step;
+}
+.contact-preview li {
+  position: relative;
+  padding: 0 0 22px 38px;
+  counter-increment: step;
+}
+.contact-preview li::before {
+  content: "0" counter(step);
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: #1e7184;
+  font-size: 12px;
+  font-weight: 700;
+}
+.contact-preview strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.contact-preview li span {
+  display: block;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.contact-preview li:last-child {
+  padding-bottom: 0;
+}
+.contact .contact-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  margin-bottom: 0;
+  font-size: 11px;
 }
