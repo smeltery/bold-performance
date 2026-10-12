@@ -222,3 +222,7 @@
     padding: 20px;
   }
 }
+
+#training-intake button:disabled {
+  cursor: not-allowed;
+}

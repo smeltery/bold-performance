@@ -11,6 +11,7 @@ const guardianFields = [
     "input,select",
   ),
 ];
+let sending = false;
 function conditions() {
   const minor =
     (form.elements.namedItem("clientType") as HTMLSelectElement).value ===
@@ -25,12 +26,27 @@ function conditions() {
   document.querySelector("#phone-optional")!.textContent = phone.required
     ? "*"
     : "(optional)";
+  form
+    .querySelectorAll<
+      HTMLInputElement | HTMLTextAreaElement
+    >("input[required]:not([type=checkbox]), textarea[required]")
+    .forEach((field) => {
+      field.setCustomValidity(
+        field.value && !field.value.trim()
+          ? "Please enter more than spaces."
+          : "",
+      );
+    });
+  button.disabled = sending || !!form.querySelector(":invalid");
 }
 form.addEventListener("input", () => {
+  conditions();
   review.hidden = true;
   status.textContent = "";
 });
 form.addEventListener("change", conditions);
+form.addEventListener("reset", () => queueMicrotask(conditions));
+window.addEventListener("pageshow", conditions);
 conditions();
 function prepare(summary: string) {
   const draft = emailDraft(summary);
@@ -43,7 +59,7 @@ function prepare(summary: string) {
 }
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  if (!form.reportValidity()) return;
+  if (sending || !form.reportValidity()) return;
   const data = new FormData(form);
   if (data.get("_gotcha")) {
     status.textContent = "Please leave the hidden spam-check field empty.";
@@ -59,7 +75,8 @@ form.addEventListener("submit", async (event) => {
     status.focus();
     return;
   }
-  button.disabled = true;
+  sending = true;
+  conditions();
   button.textContent = "Sending…";
   status.textContent = "Sending your introduction…";
   try {
@@ -80,7 +97,8 @@ form.addEventListener("submit", async (event) => {
       "Your introduction could not be sent. Your answers are still here. Try again or use the email draft below.";
     prepare(summary);
   } finally {
-    button.disabled = false;
+    sending = false;
+    conditions();
     button.textContent = "Send my introduction";
     status.focus();
   }

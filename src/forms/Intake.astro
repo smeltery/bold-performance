@@ -158,7 +158,15 @@ const formId = import.meta.env.PUBLIC_FORMSPREE_ID?.trim() || "";
       ? "Send this introduction directly to Brock."
       : "Prepare your introduction, review it, then send it from your email app. Nothing is sent automatically."}
   </p>
-  <button class="button" type="submit">
+  <p class="intake-delivery" id="intake-required">
+    Complete the fields marked * and check the consent box to continue.
+  </p>
+  <button
+    class="button"
+    type="submit"
+    disabled
+    aria-describedby="intake-required"
+  >
     {formId ? "Send my introduction" : "Prepare my introduction"}
   </button>
   <p id="intake-status" role="status" tabindex="-1"></p>
