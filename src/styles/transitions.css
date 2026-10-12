@@ -61,7 +61,7 @@
   }
   :is(#mobile-nav, #site-search)[open] {
     opacity: 1;
-    filter: blur(0);
+    filter: none;
     transform: none;
   }
   :is(#mobile-nav, #site-search)::backdrop {
