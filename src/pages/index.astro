@@ -1,30 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Icon from "../components/Icon";
-import Contact from "../components/Contact";
 import Faq from "../components/Faq.astro";
 import Coach from "../components/Coach.astro";
-const formId = import.meta.env.PUBLIC_FORMSPREE_ID?.trim();
-const services = [
-  [
-    "01",
-    "Build real strength.",
-    "Personal training",
-    "One-on-one coaching built around your goals. Develop strength, sharpen technique, and build the consistency that turns effort into progress.",
-  ],
-  [
-    "02",
-    "Move with confidence.",
-    "Movement & mobility",
-    "Give the fundamentals the attention they deserve. Work on movement quality, control, and a stronger foundation for everyday life.",
-  ],
-  [
-    "03",
-    "Raise your game.",
-    "Performance development",
-    "Bring intention to your training. Develop the strength, movement, and discipline to show up better for the demands of your sport.",
-  ],
-];
+import Coaching from "../components/Coaching.astro";
+import Approach from "../components/Approach.astro";
 ---
 
 <Layout>
@@ -42,7 +22,7 @@ const services = [
         Get stronger. Move better. Become the version of yourself you know is
         possible—with personalized coaching from Brock Jones.
       </p>
-      <a class="button" href="#contact">
+      <a class="button" href="/contact">
         <Icon name="dumbbell" /> Start your journey
       </a>
       <a class="text-link" href="#coaching">
@@ -72,7 +52,13 @@ const services = [
           <br />
           THE PLAN? WE BUILD IT TOGETHER.
         </span>
-        <Icon name="dumbbell" size={32} />
+        <img
+          class="hero-brand-mark"
+          src="/assets/mark-dark.svg"
+          alt=""
+          width="70"
+          height="48"
+        />
       </div>
     </div>
   </section>
@@ -85,79 +71,9 @@ const services = [
     <i>✳</i>
     <span>REAL ACCOUNTABILITY</span>
   </div>
-  <section id="coaching" class="section coaching">
-    <div class="section-heading">
-      <div>
-        <p class="eyebrow">01 / FIND YOUR FOCUS</p>
-        <h2>
-          Your goals.
-          <br />A stronger game plan.
-        </h2>
-      </div>
-      <p>
-        You don’t need another random workout.
-        <br />
-        You need coaching that meets you where you are—and helps you move
-        forward.
-      </p>
-    </div>
-    <div class="service-grid">
-      {services.map(([number, title, label, copy]) => (
-        <article>
-          <div class="service-top">
-            <span>{number}</span>
-            <Icon name="check" />
-          </div>
-          <p class="eyebrow">{label}</p>
-          <h3>{title}</h3>
-          <p>{copy}</p>
-          <a href="#contact">Let’s talk training</a>
-        </article>
-      ))}
-    </div>
-  </section>
+  <Coaching />
   <Coach />
-  <section id="approach" class="section approach">
-    <div class="section-heading">
-      <div>
-        <p class="eyebrow">03 / THE WAY FORWARD</p>
-        <h2>
-          Less guesswork.
-          <br />
-          More purpose.
-        </h2>
-      </div>
-      <a class="button" href="#contact">
-        <Icon name="message" /> Take the first step
-      </a>
-    </div>
-    <div class="steps">
-      <article>
-        <span>01 — CONNECT</span>
-        <h3>Start with your why.</h3>
-        <p>
-          Tell Brock where you are, what you’re working toward, and what has
-          held you back.
-        </p>
-      </article>
-      <article>
-        <span>02 — BUILD</span>
-        <h3>Make it personal.</h3>
-        <p>
-          Discuss your experience, schedule, and goals to shape a training
-          approach that fits your life.
-        </p>
-      </article>
-      <article>
-        <span>03 — SHOW UP</span>
-        <h3>Put purpose into practice.</h3>
-        <p>
-          Train with guidance and accountability. Keep building strength,
-          confidence, and consistency.
-        </p>
-      </article>
-    </div>
-  </section>
+  <Approach />
   <Faq />
   <section id="contact" class="section contact">
     <div>
@@ -172,12 +88,11 @@ const services = [
         <br />
         Let’s talk about what you want to build.
       </p>
-      <a class="button light" href="sms:+13608272046">
-        <Icon name="message" /> Text Brock to get started
+      <a class="button light" href="/contact">
+        <Icon name="message" /> Tell Brock about your goals
       </a>
     </div>
     <div class="contact-details">
-      {formId && <Contact formId={formId} client:visible />}
       <p class="eyebrow">LET’S CONNECT</p>
       <a href="tel:+13608272046">
         <Icon name="phone" /> (360) 827-2046

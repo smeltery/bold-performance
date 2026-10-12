@@ -1,0 +1,73 @@
+---
+import Icon from "./Icon";
+import { catalog } from "../tools/catalog";
+const pages = [
+  ["Home", "/", "Personalized training in Scottsdale"],
+  ["Coaching", "/coaching", "Strength, movement, and performance"],
+  ["Meet Brock", "/about", "Professional experience and personal coaching"],
+  ["The approach", "/approach", "What working together looks like"],
+  ["Training tools", "/tools", "Search every fitness and nutrition tool"],
+  ["Start a conversation", "/contact", "Tell Brock about your goals"],
+];
+const entries = [
+  ...pages.map(([title, href, description]) => ({
+    title,
+    href,
+    description,
+    group: "Pages",
+  })),
+  ...catalog.map((tool) => ({
+    title: tool.title,
+    href: `/tools/${tool.slug}`,
+    description: `${tool.category} · ${tool.description}`,
+    group: "Tools",
+  })),
+];
+---
+
+<dialog id="site-search" aria-labelledby="search-title">
+  <div class="search-heading">
+    <div>
+      <img src="/assets/logo.svg" alt="" width="60" height="30" />
+      <h2 id="search-title">Find your next step.</h2>
+    </div>
+    <button class="menu-close" data-close-search aria-label="Close search">
+      <Icon name="close" />
+    </button>
+  </div>
+  <label class="search-input">
+    <Icon name="search" />
+    <span class="sr-only">Search pages and tools</span>
+    <input
+      type="search"
+      id="search-query"
+      placeholder="Search training, nutrition, coaching…"
+      autocomplete="off"
+      aria-controls="search-results"
+    />
+  </label>
+  <div class="search-results" id="search-results">
+    {entries.map((entry) => (
+      <a
+        href={entry.href}
+        data-search={`${entry.title} ${entry.description}`.toLowerCase()}
+      >
+        <span>
+          <strong>{entry.title}</strong>
+          <small>{entry.description}</small>
+        </span>
+        <span class="search-group">{entry.group}</span>
+      </a>
+    ))}
+  </div>
+  <p class="search-empty" hidden>
+    No results. Try “protein,” “strength,” or “contact.”
+  </p>
+  <div class="search-footer">
+    <span role="status"></span>
+    <span>↑ ↓ to navigate · Enter to open · Esc to close</span>
+  </div>
+</dialog>
+<script>
+  import "../client/search";
+</script>

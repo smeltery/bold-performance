@@ -1,0 +1,200 @@
+---
+import Select from "./SelectField.astro";
+import TrainingGoals from "./TrainingGoals.astro";
+const formId = import.meta.env.PUBLIC_FORMSPREE_ID?.trim() || "";
+---
+
+<form id="training-intake" data-form-id={formId}>
+  <fieldset>
+    <legend>
+      <span>01</span> Let’s get acquainted
+    </legend>
+    <p>A few details so Brock can get back to you. * Required fields.</p>
+    <div class="intake-fields">
+      <label>
+        Full name *
+        <input name="name" autocomplete="name" required maxlength="100" />
+      </label>
+      <label>
+        Email address *
+        <input
+          name="email"
+          type="email"
+          autocomplete="email"
+          required
+          maxlength="200"
+        />
+      </label>
+      <label>
+        Phone <span id="phone-optional">(optional)</span>
+        <input name="phone" type="tel" autocomplete="tel" maxlength="40" />
+      </label>
+      <Select
+        name="contactPreference"
+        label="Preferred way to connect"
+        choices={["Email", "Phone", "Text"]}
+        required
+      />
+      <label>
+        City / area
+        <input
+          name="location"
+          autocomplete="address-level2"
+          maxlength="100"
+          placeholder="For example, Scottsdale, AZ"
+        />
+      </label>
+      <Select
+        name="clientType"
+        label="Who is the training for?"
+        choices={[
+          "Myself (18 or older)",
+          "My child / an athlete under 18",
+          "Another adult",
+        ]}
+        required
+      />
+    </div>
+    <div class="guardian-fields" hidden>
+      <label>
+        Athlete’s first name *
+        <input name="athleteName" maxlength="80" disabled required />
+      </label>
+      <Select
+        name="ageRange"
+        label="Athlete’s age range"
+        choices={["Under 13", "13–15", "16–17"]}
+        required
+      />
+      <p>
+        Please use your own name and contact details above as the parent or
+        guardian.
+      </p>
+    </div>
+  </fieldset>
+  <TrainingGoals />
+  <fieldset>
+    <legend>
+      <span>03</span> Make it fit your life
+    </legend>
+    <div class="intake-fields">
+      <Select
+        name="frequency"
+        label="Desired coaching frequency"
+        choices={[
+          "Once a week",
+          "Twice a week",
+          "Three or more times a week",
+          "Let’s decide together",
+        ]}
+      />
+      <Select
+        name="timeline"
+        label="When would you like to start?"
+        choices={[
+          "As soon as possible",
+          "Within a month",
+          "In 1–3 months",
+          "Just exploring",
+        ]}
+      />
+      <Select
+        name="equipment"
+        label="Access to equipment"
+        choices={[
+          "Full gym",
+          "Home gym / some equipment",
+          "No equipment",
+          "Would like to discuss training locations",
+        ]}
+      />
+      <Select
+        name="sessionLength"
+        label="Time available per session"
+        choices={["30 minutes", "45 minutes", "60 minutes", "Flexible"]}
+      />
+      <label>
+        Days / times that work (optional)
+        <input
+          name="availability"
+          maxlength="200"
+          placeholder="For example, weekday mornings before 8"
+        />
+      </label>
+      <label>
+        Event / season timeline (optional)
+        <input
+          name="event"
+          maxlength="200"
+          placeholder="For example, tryouts in March"
+        />
+      </label>
+    </div>
+    <label>
+      Anything else you’d like Brock to know? (optional)
+      <textarea
+        name="notes"
+        rows="3"
+        maxlength="1500"
+        placeholder="Questions, preferences, or support that would help you stay consistent. Please leave medical details for a private conversation."
+      ></textarea>
+    </label>
+  </fieldset>
+  <div class="honeypot" aria-hidden="true">
+    <label>
+      Leave this blank
+      <input name="_gotcha" tabindex="-1" autocomplete="off" />
+    </label>
+  </div>
+  <label class="intake-consent">
+    <input type="checkbox" name="consent" required value="Agreed" />
+    <span>
+      I agree that Bold Performance may use these details to respond to my
+      inquiry. <a href="/privacy">Privacy policy</a>.
+    </span>
+  </label>
+  <p class="intake-delivery">
+    {formId
+      ? "Send this introduction directly to Brock."
+      : "Prepare your introduction, review it, then send it from your email app. Nothing is sent automatically."}
+  </p>
+  <button class="button" type="submit">
+    {formId ? "Send my introduction" : "Prepare my introduction"}
+  </button>
+  <p id="intake-status" role="status" tabindex="-1"></p>
+  <section id="intake-review" hidden aria-labelledby="review-title">
+    <h2 id="review-title">Your introduction, ready to review.</h2>
+    <label>
+      Copy your introduction
+      <textarea id="intake-copy" readonly rows="12"></textarea>
+    </label>
+    <div class="intake-review-actions">
+      <a id="intake-email" class="button">
+        Open email draft
+      </a>
+      <button type="button" class="secondary-button" id="intake-download">
+        Download introduction
+      </button>
+    </div>
+    <p id="intake-email-note">
+      Send the draft from your email app to complete your inquiry.
+    </p>
+  </section>
+</form>
+<noscript>
+  <style is:inline>
+    #training-intake {
+      display: none;
+    }
+  </style>
+  <p>
+    Please enable JavaScript to prepare an introduction, or email{" "}
+    <a href="mailto:boldperformancellc@gmail.com">
+      boldperformancellc@gmail.com
+    </a>{" "}
+    with your training goals and availability.
+  </p>
+</noscript>
+<script>
+  import "./intake-client";
+</script>

@@ -3,19 +3,19 @@ import Icon, { type IconName } from "./Icon";
 const links: { href: string; label: string; detail: string; icon: IconName }[] =
   [
     {
-      href: "/#coaching",
+      href: "/coaching",
       label: "Coaching",
       detail: "Find your training focus",
       icon: "dumbbell",
     },
     {
-      href: "/#brock",
+      href: "/about",
       label: "Meet Brock",
       detail: "Experience behind the coaching",
       icon: "user",
     },
     {
-      href: "/#approach",
+      href: "/approach",
       label: "The approach",
       detail: "A plan with purpose",
       icon: "check",
@@ -50,9 +50,20 @@ const links: { href: string; label: string; detail: string; icon: IconName }[] =
       </a>
     ))}
   </nav>
-  <a class="button small desktop-cta" href="/#contact">
-    <Icon name="message" /> Let’s get to work
-  </a>
+  <div class="header-actions">
+    <button
+      class="search-trigger desktop-search"
+      data-open-search
+      aria-label="Search pages and tools"
+      aria-keyshortcuts="Meta+K Control+K"
+    >
+      <Icon name="search" />
+      <kbd>⌘ K</kbd>
+    </button>
+    <a class="button small desktop-cta" href="/contact">
+      <Icon name="message" /> Let’s get to work
+    </a>
+  </div>
   <button
     class="menu-toggle"
     aria-expanded="false"
@@ -69,6 +80,9 @@ const links: { href: string; label: string; detail: string; icon: IconName }[] =
       <Icon name="close" />
     </button>
   </div>
+  <button class="mobile-search" data-open-search>
+    <Icon name="search" /> Search pages and tools
+  </button>
   <p class="menu-intro">
     Your next step.
     <br />
@@ -88,7 +102,7 @@ const links: { href: string; label: string; detail: string; icon: IconName }[] =
     ))}
   </nav>
   <div class="menu-contact">
-    <a class="button" href="/#contact">
+    <a class="button" href="/contact">
       <Icon name="message" /> Talk training with Brock
     </a>
     <p>

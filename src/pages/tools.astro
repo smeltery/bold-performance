@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Icon from "../components/Icon";
-import Toolkit from "../tools/Toolkit";
+import ToolDirectory from "../components/ToolDirectory.astro";
+import "../styles/directory.css";
 import "../styles/tools.css";
 import "../styles/tool-controls.css";
 ---
@@ -22,7 +23,7 @@ import "../styles/tool-controls.css";
         <p>
           Simple tools to take the guesswork out of your gym time.
           <br />
-          Plan your week, load your bar, and make every rest count.
+          Workouts, strength, conditioning, and nutrition planning.
         </p>
       </div>
       <aside>
@@ -34,11 +35,11 @@ import "../styles/tool-controls.css";
         </p>
       </aside>
     </div>
-    <Toolkit client:load />
+    <ToolDirectory />
     <noscript>
       <p>
         Enable JavaScript to use the interactive training tools. You can still{" "}
-        <a href="/#contact">contact Brock</a> to discuss your training.
+        <a href="/contact">contact Brock</a> to discuss your training.
       </p>
     </noscript>
     <div class="tools-closing">
@@ -51,7 +52,7 @@ import "../styles/tool-controls.css";
         </h2>
         <p>Bring your goals and questions. Build your next step with Brock.</p>
       </div>
-      <a class="button" href="/#contact">
+      <a class="button" href="/contact">
         <Icon name="message" /> Talk about your training
       </a>
     </div>

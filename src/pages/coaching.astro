@@ -1,0 +1,69 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageIntro from "../components/PageIntro.astro";
+import Coaching from "../components/Coaching.astro";
+import Faq from "../components/Faq.astro";
+---
+
+<Layout
+  title="Personal Training & Athletic Coaching | Bold Performance"
+  description="Explore one-on-one strength, movement, and performance coaching with Brock Jones in Scottsdale, Arizona."
+>
+  <PageIntro
+    eyebrow="PERSONAL TRAINING / SCOTTSDALE"
+    title="Built around you."
+    accent="Built to last."
+    description="A purposeful approach to strength, movement, and performance—shaped by your starting point and the life you want to lead."
+  />
+  <Coaching />
+  <section class="section coaching-detail">
+    <div>
+      <p class="eyebrow">WHAT YOU BRING</p>
+      <h2>
+        A goal.
+        <br />A willingness to work.
+      </h2>
+      <p>
+        You might be new to training, returning to a routine, or developing as
+        an athlete. Start with a conversation about your experience, priorities,
+        and schedule.
+      </p>
+    </div>
+    <div>
+      <p class="eyebrow">WHAT WE BUILD</p>
+      <h2>
+        Clarity.
+        <br />
+        Consistency. Confidence.
+      </h2>
+      <p>
+        Discuss the right coaching focus with Brock, then work on purposeful
+        movement and a stronger foundation. Pricing, locations, and availability
+        are confirmed directly.
+      </p>
+      <a class="button" href="/contact">
+        Find your starting point
+      </a>
+    </div>
+  </section>
+  <Faq />
+</Layout>
+<style>
+  .coaching-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9vw;
+    background: #e9ede8;
+  }
+  .coaching-detail p:not(.eyebrow) {
+    font-size: 14px;
+    max-width: 470px;
+    color: var(--muted);
+  }
+  @media (max-width: 700px) {
+    .coaching-detail {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+</style>

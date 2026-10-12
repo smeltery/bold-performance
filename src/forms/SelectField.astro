@@ -1,0 +1,14 @@
+---
+const { name, label, choices, required = false } = Astro.props;
+---
+
+<label>
+  {label}
+  {required ? " *" : " (optional)"}
+  <select name={name} required={required}>
+    <option value="">Choose an option</option>
+    {choices.map((choice: string) => (
+      <option>{choice}</option>
+    ))}
+  </select>
+</label>

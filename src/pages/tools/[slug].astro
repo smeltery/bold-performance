@@ -1,0 +1,92 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { catalog } from "../../tools/catalog";
+import Icon from "../../components/Icon";
+import PlateCalculator from "../../tools/PlateCalculator";
+import RestTimer from "../../tools/RestTimer";
+import WeekPlanner from "../../tools/WeekPlanner";
+import Calculator from "../../tools/Calculator";
+import "../../styles/tools.css";
+import "../../styles/tool-controls.css";
+import "../../styles/directory.css";
+export function getStaticPaths() {
+  return catalog.map((tool) => ({
+    params: { slug: tool.slug },
+    props: { tool },
+  }));
+}
+const { tool } = Astro.props;
+const related = catalog
+  .filter((item) => item.slug !== tool.slug && item.category === tool.category)
+  .slice(0, 3);
+---
+
+<Layout
+  title={`${tool.title} | Bold Performance`}
+  description={tool.description}
+>
+  <section class="section">
+    <a class="text-link" href="/tools">
+      All training tools
+    </a>
+    <div class="tool-page-heading">
+      <span class="tool-card-icon">
+        <Icon name={tool.icon} size={30} />
+      </span>
+      <p class="eyebrow">{tool.category} / BOLD PERFORMANCE TOOLKIT</p>
+      <h1>{tool.title}</h1>
+      <p>{tool.description}</p>
+    </div>
+    <div class="tool-workspace">
+      {tool.slug === "plate-calculator" ? (
+        <PlateCalculator client:load />
+      ) : tool.slug === "rest-timer" ? (
+        <RestTimer client:load />
+      ) : tool.slug === "weekly-planner" ? (
+        <WeekPlanner client:load />
+      ) : (
+        <Calculator slug={tool.slug} note={tool.note} client:load />
+      )}
+    </div>
+    <noscript>
+      <p>
+        Enable JavaScript to update this tool. The values shown are examples.
+      </p>
+    </noscript>
+    <div class="tool-explanation">
+      <h2>Know what the numbers mean.</h2>
+      <p>{tool.note}</p>
+      <p>
+        Your inputs stay in this browser tab. Nothing is sent to Brock.
+        Reloading resets your inputs.
+      </p>
+      {tool.category === "Nutrition" && (
+        <p>
+          These tools organize targets you already have. For individual
+          nutrition needs, consult a registered dietitian.{" "}
+          <a href="https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label">
+            Learn how to read food labels from the FDA.
+          </a>
+        </p>
+      )}
+      <a class="text-link" href="/contact">
+        Talk through your training goals
+      </a>
+    </div>
+    {related.length > 0 && (
+      <section class="related-tools">
+        <p class="eyebrow">KEEP EXPLORING</p>
+        <h2>More for your training.</h2>
+        <div class="tool-library">
+          {related.map((item) => (
+            <a href={`/tools/${item.slug}`}>
+              <Icon name={item.icon} />
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+  </section>
+</Layout>

@@ -38,7 +38,7 @@ CI and pre-commit both execute `scripts/check.sh` inside Flox. Dependencies are
 locked in `bun.lock`. Run `bun install` after dependency changes and commit the lock.
 
 Budgets in `scripts/budgets.json` allow 250 lines per source/documentation file,
-20 direct files per directory, and 3,400 total checked lines. Generated assets,
+20 direct files per directory, and 6,000 total checked lines. Generated assets,
 lockfiles, dependencies, and Flox-generated files are excluded. The validator reads
 tracked files, so stage new files before running the full check. Split by
 responsibility, not to satisfy arbitrary line counts.

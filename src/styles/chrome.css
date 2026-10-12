@@ -144,7 +144,7 @@ nav a[aria-current] {
     padding: 0 22px;
   }
   header > nav,
-  header > .desktop-cta {
+  header .desktop-cta {
     display: none;
   }
   .brand > img:first-child {

@@ -1,0 +1,101 @@
+---
+import { catalog, categories } from "../tools/catalog";
+import Icon from "./Icon";
+---
+
+<section class="tool-directory" aria-labelledby="directory-title">
+  <div class="directory-heading">
+    <div>
+      <p class="eyebrow">FIND YOUR NEXT STEP</p>
+      <h2 id="directory-title">Your training toolkit.</h2>
+    </div>
+    <span>{catalog.length} free tools · No account needed</span>
+  </div>
+  <div class="directory-controls" hidden>
+    <label class="directory-search">
+      <Icon name="search" />
+      <span class="sr-only">Find a training tool</span>
+      <input
+        type="search"
+        placeholder="Search workouts, macros, meal planning…"
+        aria-controls="tool-library"
+      />
+    </label>
+    <div class="directory-filters" role="group" aria-label="Tool categories">
+      {categories.map((category, index) => (
+        <button data-category={category} aria-pressed={index === 0}>
+          {category}
+        </button>
+      ))}
+    </div>
+  </div>
+  <p class="directory-count" role="status">
+    {catalog.length} tools
+  </p>
+  <div id="tool-library" class="tool-library">
+    {catalog.map((tool) => (
+      <a
+        href={`/tools/${tool.slug}`}
+        data-category={tool.category}
+        data-search={`${tool.title} ${tool.category} ${tool.description}`.toLowerCase()}
+      >
+        <div>
+          <span class="tool-card-icon">
+            <Icon name={tool.icon} size={25} />
+          </span>
+          <span class="eyebrow">{tool.category}</span>
+        </div>
+        <h3>{tool.title}</h3>
+        <p>{tool.description}</p>
+        <span class="card-action">Open tool</span>
+      </a>
+    ))}
+  </div>
+  <div class="directory-empty" hidden>
+    <h3>No tools found.</h3>
+    <p>Try “protein,” “workout,” or “pace,” or reset the filters.</p>
+    <button class="button">Show all tools</button>
+  </div>
+</section>
+<script>
+  const controls = document.querySelector<HTMLElement>(".directory-controls")!;
+  controls.hidden = false;
+  const input = controls.querySelector<HTMLInputElement>("input")!;
+  const cards = [
+    ...document.querySelectorAll<HTMLAnchorElement>("#tool-library>a"),
+  ];
+  const filters = [
+    ...controls.querySelectorAll<HTMLButtonElement>("[data-category]"),
+  ];
+  let category = "All tools";
+  function update() {
+    const terms = input.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    let count = 0;
+    cards.forEach((card) => {
+      card.hidden =
+        !(category === "All tools" || card.dataset.category === category) ||
+        !terms.every((term) => card.dataset.search!.includes(term));
+      if (!card.hidden) count++;
+    });
+    document.querySelector(".directory-count")!.textContent =
+      `${count} ${count === 1 ? "tool" : "tools"} found`;
+    document.querySelector<HTMLElement>(".directory-empty")!.hidden = count > 0;
+  }
+  input.addEventListener("input", update);
+  filters.forEach((button) =>
+    button.addEventListener("click", () => {
+      category = button.dataset.category!;
+      filters.forEach((filter) =>
+        filter.setAttribute("aria-pressed", String(filter === button)),
+      );
+      update();
+    }),
+  );
+  document
+    .querySelector(".directory-empty button")!
+    .addEventListener("click", () => {
+      input.value = "";
+      filters[0].click();
+      input.focus();
+    });
+</script>

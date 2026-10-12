@@ -1,0 +1,82 @@
+---
+import Select from "./SelectField.astro";
+---
+
+<fieldset>
+  <legend>
+    <span>02</span> What are you working toward?
+  </legend>
+  <p>
+    Select the areas you want to explore. It’s okay if you’re still figuring it
+    out.
+  </p>
+  <div class="intake-choices">
+    {[
+      "Build strength",
+      "Improve movement & mobility",
+      "Sport performance",
+      "General fitness",
+      "Build muscle",
+      "Body composition",
+      "Consistency & accountability",
+      "Not sure yet",
+    ].map((goal) => (
+      <label>
+        <input type="checkbox" name="goals" value={goal} />
+        <span>{goal}</span>
+      </label>
+    ))}
+  </div>
+  <label>
+    What would meaningful progress look like? *
+    <textarea
+      name="priority"
+      required
+      rows="4"
+      maxlength="1500"
+      placeholder="Your main goal, a challenge you want to overcome, or an event you’re preparing for."
+    ></textarea>
+  </label>
+  <div class="intake-fields">
+    <Select
+      name="experience"
+      label="Training experience"
+      choices={[
+        "New to structured training",
+        "Returning after time away",
+        "Training regularly",
+        "Experienced athlete",
+      ]}
+      required
+    />
+    <Select
+      name="trainingType"
+      label="What kind of coaching interests you?"
+      choices={[
+        "One-on-one personal training",
+        "Athletic / sport performance",
+        "Strength & movement coaching",
+        "Help choosing the right approach",
+      ]}
+      required
+    />
+    <label>
+      Sport / position (optional)
+      <input
+        name="sport"
+        maxlength="100"
+        placeholder="For example, baseball / pitcher"
+      />
+    </label>
+    <Select
+      name="currentFrequency"
+      label="Current training frequency"
+      choices={[
+        "Not currently training",
+        "1–2 days per week",
+        "3–4 days per week",
+        "5+ days per week",
+      ]}
+    />
+  </div>
+</fieldset>

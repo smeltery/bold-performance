@@ -1,0 +1,54 @@
+---
+import Icon from "./Icon";
+const services = [
+  [
+    "01",
+    "Build real strength.",
+    "Personal training",
+    "One-on-one coaching built around your goals. Develop strength, sharpen technique, and build the consistency that turns effort into progress.",
+  ],
+  [
+    "02",
+    "Move with confidence.",
+    "Movement & mobility",
+    "Give the fundamentals the attention they deserve. Work on movement quality, control, and a stronger foundation for everyday life.",
+  ],
+  [
+    "03",
+    "Raise your game.",
+    "Performance development",
+    "Bring intention to your training. Develop the strength, movement, and discipline to show up better for the demands of your sport.",
+  ],
+];
+---
+
+<section id="coaching" class="section coaching">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">01 / FIND YOUR FOCUS</p>
+      <h2>
+        Your goals.
+        <br />A stronger game plan.
+      </h2>
+    </div>
+    <p>
+      You don’t need another random workout.
+      <br />
+      You need coaching that meets you where you are—and helps you move forward.
+    </p>
+  </div>
+  <div class="service-grid">
+    {services.map(([number, title, label, copy]) => (
+      <article>
+        <div class="service-top">
+          <span>{number}</span>
+          <Icon name="check" />
+        </div>
+        <p class="eyebrow">{label}</p>
+        <h3>{title}</h3>
+        <p>{copy}</p>
+        <a href="/contact">Let’s talk training</a>
+      </article>
+    ))}
+  </div>
+</section>

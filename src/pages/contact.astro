@@ -1,0 +1,64 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Icon from "../components/Icon";
+import Intake from "../forms/Intake.astro";
+import "../styles/intake.css";
+import "../styles/tool-controls.css";
+---
+
+<Layout
+  title="Start Your Training Journey | Bold Performance"
+  description="Tell Brock Jones about your goals, sport, experience, and schedule. Start a personal training conversation with Bold Performance in Scottsdale."
+>
+  <section class="section contact-page">
+    <div class="page-intro">
+      <p class="eyebrow">LET’S FIND YOUR STARTING POINT</p>
+      <h1>
+        Your goals.
+        <br />
+        <em>Let’s get specific.</em>
+      </h1>
+      <p>
+        Tell Brock what you’re working toward and how training fits into your
+        life.
+        <br />
+        You don’t need a perfect plan to start a good conversation.
+      </p>
+    </div>
+    <div class="intake-layout">
+      <aside>
+        <img
+          src="/assets/logo-with-text.svg"
+          alt="Bold Performance"
+          width="180"
+          height="156"
+        />
+        <h2>
+          A coach in
+          <br />
+          your corner.
+        </h2>
+        <p>
+          This introduction helps Brock understand your priorities before you
+          connect. It takes about 3–5 minutes.
+        </p>
+        <p>
+          Share only what you’re comfortable sharing. Keep medical history and
+          sensitive details for a private conversation.
+        </p>
+        <hr />
+        <p>Prefer to connect directly?</p>
+        <a href="tel:+13608272046">
+          <Icon name="phone" size={18} /> (360) 827-2046
+        </a>
+        <a href="mailto:boldperformancellc@gmail.com">
+          <Icon name="mail" size={18} /> Email Brock
+        </a>
+        <a href="https://www.instagram.com/bold_performanceaz/">
+          <Icon name="instagram" size={18} /> Instagram
+        </a>
+      </aside>
+      <Intake />
+    </div>
+  </section>
+</Layout>

@@ -95,3 +95,9 @@
 .image-caption > .icon {
   color: var(--cyan);
 }
+
+.hero-brand-mark {
+  width: 70px;
+  height: 48px;
+  object-fit: contain;
+}

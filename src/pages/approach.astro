@@ -1,0 +1,76 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageIntro from "../components/PageIntro.astro";
+import Approach from "../components/Approach.astro";
+---
+
+<Layout
+  title="The Coaching Approach | Bold Performance"
+  description="Learn how to get started with Brock Jones: share your goals, build your training approach, and put purpose into practice."
+>
+  <PageIntro
+    eyebrow="THE BOLD PERFORMANCE APPROACH"
+    title="A plan with purpose."
+    accent="Work that adds up."
+    description="Start with where you are. Get clear on where you want to go. Build the consistency to keep moving forward."
+  />
+  <Approach />
+  <section class="section approach-next">
+    <div>
+      <p class="eyebrow">BEFORE YOU BEGIN</p>
+      <h2>Make the first conversation count.</h2>
+      <p>
+        The training introduction gives Brock context on your goals, athletic
+        background, and availability. It helps you spend your first conversation
+        on what matters most to you.
+      </p>
+      <a class="button" href="/contact">
+        Prepare your introduction
+      </a>
+    </div>
+    <aside>
+      <img src="/assets/logo.svg" alt="" width="100" height="50" />
+      <h3>A little preparation helps.</h3>
+      <ul>
+        <li>Think about your main goal and why it matters.</li>
+        <li>Consider the days and times you can commit.</li>
+        <li>Bring questions about coaching, pricing, and locations.</li>
+      </ul>
+      <a class="text-link" href="/tools">
+        Explore the training toolkit
+      </a>
+    </aside>
+  </section>
+</Layout>
+<style>
+  .approach-next {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 9vw;
+    align-items: start;
+  }
+  .approach-next p,
+  .approach-next li {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+  .approach-next aside {
+    background: white;
+    padding: 35px;
+    border: 1px solid var(--line);
+  }
+  .approach-next aside > img {
+    margin-bottom: 25px;
+  }
+  .approach-next ul {
+    padding-left: 20px;
+    margin-bottom: 25px;
+  }
+  @media (max-width: 700px) {
+    .approach-next {
+      grid-template-columns: 1fr;
+      gap: 35px;
+    }
+  }
+</style>

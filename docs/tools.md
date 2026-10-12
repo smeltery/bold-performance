@@ -1,8 +1,35 @@
 # Training tools
 
-Open **Training tools** from the navigation. No account is required. Tools run in
-your browser; inputs remain while switching tools and reset on reload. A running
-timer continues when you switch tools. No inputs are sent to Brock.
+Open **Training tools** from the navigation. Search by name or purpose and filter
+by Strength, Workout, Conditioning, or Nutrition. Every tool has a shareable
+`/tools/<slug>` URL. No account is required. Inputs stay in the current page and
+reset on reload or navigation. No inputs are sent to Brock.
+
+Press Cmd+K (Mac) or Ctrl+K to search pages and tools from anywhere. Use the
+arrow keys and Enter, or Tab through results. Escape closes the search dialog.
+The brand resources page is linked only in the footer.
+
+## Workout and strength calculators
+
+Workout volume multiplies sets, reps, and load. Workout time combines working
+sets, rests between sets, and a warm-up. Session effort multiplies minutes by
+your own 1–10 rating. Running pace divides elapsed time by distance. Weight
+conversion uses 0.45359237 kg per pound. Training percentages multiply a
+user-provided reference load by a percentage. None prescribe a workout.
+
+## Nutrition planning
+
+- Calories from macros uses the general 4/4/9 factors for protein, carbohydrate, and fat.
+- Macro target planner converts your calorie target and percentage split to grams.
+- Protein per meal divides your existing daily target across meals.
+- Hydration progress compares recorded milliliters with your chosen goal.
+- Meal portion scaler multiplies per-serving label values by portions.
+
+Examples are not personal dietary recommendations. These tools do not estimate
+calorie needs or prescribe weight-loss targets. Food-label rounding, fiber, and
+sugar alcohols may produce differences from the simple macro calculation.
+The general energy factors are described in [21 CFR 101.9(c)(1)(i)(B)](https://www.ecfr.gov/current/title-21/section-101.9).
+See [FDA food-label guidance](https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label).
 
 ## Plate calculator
 

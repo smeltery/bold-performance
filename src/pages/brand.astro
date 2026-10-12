@@ -1,0 +1,145 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../styles/brand.css";
+const swatches = [
+  ["Performance cyan", "#55B4C9"],
+  ["Deep teal", "#1E7184"],
+  ["Charcoal", "#161C1D"],
+  ["Warm white", "#F6F6F1"],
+];
+---
+
+<Layout
+  title="Brand Resources | Bold Performance"
+  description="Official Bold Performance SVG artwork, color palette, typography, and guidance for consistent brand use."
+>
+  <section class="section">
+    <p class="eyebrow">BOLD PERFORMANCE / BRAND RESOURCES</p>
+    <h1>
+      Built to stand
+      <br />
+      <em>for something.</em>
+    </h1>
+    <p class="brand-lead">
+      A consistent identity for purposeful training.
+      <br />
+      The shield, the monogram, and the commitment behind them.
+    </p>
+    <div class="brand-previews">
+      <figure>
+        <div>
+          <img
+            src="/assets/logo-with-text.svg"
+            alt="Full-color Bold Performance logo"
+            width="320"
+            height="278"
+          />
+        </div>
+        <figcaption>
+          <strong>Primary logo</strong>
+          <a href="/assets/logo-with-text.svg" download>
+            Download SVG
+          </a>
+        </figcaption>
+      </figure>
+      <figure>
+        <div class="dark-preview">
+          <img
+            src="/assets/logo-footer.svg"
+            alt="White and cyan Bold Performance horizontal logo"
+            width="360"
+            height="113"
+          />
+        </div>
+        <figcaption>
+          <strong>Logo for dark backgrounds</strong>
+          <a href="/assets/logo-footer.svg" download>
+            Download SVG
+          </a>
+        </figcaption>
+      </figure>
+    </div>
+    <section class="brand-details">
+      <div>
+        <p class="eyebrow">THE MARK</p>
+        <h2>
+          Recognizable.
+          <br />
+          At every size.
+        </h2>
+        <p>
+          Use the shield and BP monogram when space is limited. Preserve its
+          proportions and leave clear space around the artwork.
+        </p>
+        <a class="text-link" href="/assets/logo.svg" download>
+          Download the full-color mark
+        </a>
+      </div>
+      <div class="mark-examples">
+        <img
+          src="/assets/logo.svg"
+          alt="Bold Performance shield and barbell"
+          width="220"
+          height="111"
+        />
+        <div>
+          <img
+            src="/assets/favicon.svg"
+            alt="Browser icon at 32 pixels"
+            width="32"
+            height="32"
+          />
+          <img
+            src="/assets/favicon.svg"
+            alt="Browser icon at 48 pixels"
+            width="48"
+            height="48"
+          />
+          <a href="/assets/favicon.svg" download>
+            Download favicon
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="brand-colors">
+      <p class="eyebrow">THE PALETTE</p>
+      <h2>Energy with intention.</h2>
+      <div class="swatches">
+        {swatches.map(([name, color]) => (
+          <div>
+            <span style={`background:${color}`}></span>
+            <strong>{name}</strong>
+            <code>{color}</code>
+          </div>
+        ))}
+      </div>
+    </section>
+    <section class="brand-details">
+      <div>
+        <p class="eyebrow">TYPE & VOICE</p>
+        <h2>
+          Strong words.
+          <br />
+          Clear purpose.
+        </h2>
+        <p>
+          Barlow Condensed brings focus to headlines. DM Sans keeps longer
+          reading and everyday interactions clear.
+        </p>
+      </div>
+      <div>
+        <h3>Train with purpose.</h3>
+        <p>
+          Speak directly, keep goals personal, and make the next step clear.
+          Celebrate effort and consistency. Avoid guarantees, invented results,
+          and pressure.
+        </p>
+        <p>
+          Keep the original lettering in the logo. Don’t stretch, redraw, or
+          place it over busy imagery. Use the dedicated dark-background artwork
+          instead of applying a color filter.
+        </p>
+      </div>
+    </section>
+  </section>
+</Layout>
