@@ -1,6 +1,6 @@
 import { next, rewrite } from "@vercel/functions";
-import { pages } from "./src/content/site";
-import { catalog as tools } from "./src/tools/catalog";
+import { pages } from "./src/content/site.js";
+import { catalog as tools } from "./src/tools/catalog.js";
 const routes = new Set([
   ...pages,
   ...tools.map((tool) => `/tools/${tool.slug}`),

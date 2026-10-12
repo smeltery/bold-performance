@@ -1,4 +1,4 @@
-import type { IconName } from "../components/Icon";
+import type { IconName } from "../components/Icon.js";
 export type Tool = {
   slug: string;
   title: string;
