@@ -21,6 +21,10 @@ Fonts are Barlow Condensed and DM Sans, loaded from Google Fonts, with system
 fallbacks. Google receives ordinary font request data. Self-host fonts if external
 font requests are undesirable.
 
+The Meet Brock sections on the homepage and about page share
+`src/components/Coach.astro`. The portrait at `public/assets/brock-jones.png`
+is the user-supplied baseball photograph, displayed in its original proportions.
+
 ## Editorial rules
 
 Credentials and contact information come from the supplied flyer and Instagram
