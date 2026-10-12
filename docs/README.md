@@ -6,3 +6,4 @@
 - [Development](development.md): Flox, Bun, checks, and project structure.
 - [Deployment and releases](deployment.md): publish the static site and release archives.
 - [Training tools](tools.md): calculate plates, time rest, and plan your week.
+- [Search, agents, and analytics](discovery.md): metadata, Markdown access, and social previews.

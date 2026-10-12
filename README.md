@@ -1,4 +1,4 @@
-# Bold Performance
+# <img src="public/assets/logo.svg" width="56" alt="" /> Bold Performance
 
 [![CI](https://github.com/smeltery/bold-performance/actions/workflows/ci.yml/badge.svg)](https://github.com/smeltery/bold-performance/actions/workflows/ci.yml)
 ![Astro](https://img.shields.io/badge/Astro-7-BC52EE?logo=astro&logoColor=white)
@@ -15,6 +15,8 @@ sends through Formspree when configured. Includes responsive navigation, service
 SVG brand artwork, direct contact options, and 20 searchable training tools, dedicated coaching pages, and a detailed client intake.
 Vercel hosts the static site and deploys pushes to `main`.
 
+![Bold Performance social preview](public/assets/og-image.png)
+
 ```sh
 flox activate
 bun install --frozen-lockfile
@@ -25,4 +27,6 @@ Run `./scripts/check.sh` inside Flox for the same checks as CI and pre-commit.
 Build with `bun run build`; the deployable site is in `dist/`.
 
 See [the documentation](docs/README.md) for editing content, enabling inquiries,
-development, deployment, and automatic releases.
+development, deployment, automatic releases, and [SEO, agent discovery, and analytics](docs/discovery.md).
+
+Licensed under [PolyForm Shield License 1.0.0](LICENSE).

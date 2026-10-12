@@ -13,6 +13,29 @@ for (const [path, document] of pages) {
     errors.push(`${path}: expected one h1`);
   if (!document.title || !document.querySelector('meta[name="description"]'))
     errors.push(`${path}: missing metadata`);
+  for (const selector of [
+    'link[rel="canonical"]',
+    'meta[property="og:image"]',
+    'meta[name="twitter:card"]',
+    'script[type="application/ld+json"]',
+  ]) {
+    if (!document.querySelector(selector))
+      errors.push(`${path}: missing SEO signal ${selector}`);
+  }
+  const structured = JSON.parse(
+    document.querySelector('script[type="application/ld+json"]')!.textContent,
+  );
+  if (
+    !structured["@graph"].some(
+      (entry: { "@type": string }) => entry["@type"] === "Organization",
+    )
+  )
+    errors.push(`${path}: missing organization schema`);
+  const markdown = document
+    .querySelector('link[type="text/markdown"]')!
+    .getAttribute("href")!;
+  if (!(await Bun.file(resolve(root, markdown.slice(1))).text()).includes("# "))
+    errors.push(`${path}: empty Markdown`);
   for (const image of document.querySelectorAll("img")) {
     if (!image.hasAttribute("alt"))
       errors.push(`${path}: missing image alternative`);

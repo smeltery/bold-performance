@@ -1,0 +1,106 @@
+---
+import { site } from "../content/site";
+const { title, description } = Astro.props;
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+const canonical = new URL(path, site.url).href;
+const image = `${site.url}/assets/og-image.png`;
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${site.url}/#organization`,
+      name: site.name,
+      url: site.url,
+      description: site.description,
+      logo: `${site.url}/assets/logo-with-text.svg`,
+      image,
+      email: site.email,
+      telephone: site.phone,
+      contactPoint: {
+        "@type": "ContactPoint",
+        email: site.email,
+        telephone: site.phone,
+        contactType: "coaching inquiries",
+        url: `${site.url}/contact`,
+      },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Scottsdale",
+        addressRegion: "AZ",
+        addressCountry: "US",
+      },
+      areaServed: { "@type": "City", name: "Scottsdale, Arizona" },
+      sameAs: ["https://www.instagram.com/bold_performanceaz/"],
+      founder: { "@id": `${site.url}/about#brock` },
+    },
+    {
+      "@type": "Person",
+      "@id": `${site.url}/about#brock`,
+      name: "Brock Jones",
+      url: `${site.url}/about`,
+      jobTitle: "Personal trainer and pitching coach",
+      description:
+        "Former Arizona Diamondbacks organization pitcher and NASM-certified personal trainer.",
+      image: `${site.url}/assets/brock-jones.png`,
+      sameAs: [
+        "https://www.milb.com/player/brock-jones-686809",
+        "https://www.bannerhealth.com/hpc/about-us/team/brock-jones",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${site.url}/#website`,
+      name: site.name,
+      url: site.url,
+      publisher: { "@id": `${site.url}/#organization` },
+    },
+    {
+      "@type": "WebPage",
+      "@id": canonical,
+      name: title,
+      description,
+      url: canonical,
+      inLanguage: "en-US",
+      isPartOf: { "@id": `${site.url}/#website` },
+    },
+  ],
+};
+---
+
+<meta name="is-agentic-site-type" content="business" />
+<link rel="canonical" href={canonical} />
+<link
+  rel="alternate"
+  type="text/markdown"
+  href={`/agent-content${path === "/" ? "/index" : path}.md`}
+/>
+<meta
+  name="robots"
+  content={
+    path === "/404"
+      ? "noindex, follow"
+      : "index, follow, max-image-preview:large"
+  }
+/>
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonical} />
+<meta property="og:site_name" content={site.name} />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content={image} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta
+  property="og:image:alt"
+  content="Bold Performance — Built for more. Trained for life. Personal training with Brock Jones in Scottsdale, Arizona."
+/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(schema).replace(/</g, "\\u003c")}
+/>
