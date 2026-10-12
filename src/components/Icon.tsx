@@ -36,9 +36,19 @@ export default function Icon({
   name: IconName;
   size?: number;
 }) {
+  if (name === "cactus")
+    return (
+      <span
+        className="cactus-emoji"
+        aria-hidden="true"
+        style={{ fontSize: size }}
+      >
+        🌵
+      </span>
+    );
   return (
     <svg
-      className={name === "cactus" ? "icon cactus" : "icon"}
+      className="icon"
       width={size}
       height={size}
       viewBox="0 0 24 24"

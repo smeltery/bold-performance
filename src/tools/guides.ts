@@ -1,3 +1,4 @@
+import { extraGuides } from "./extra-guides";
 export type ToolGuide = {
   purpose: string;
   steps: string[];
@@ -5,6 +6,7 @@ export type ToolGuide = {
   interpretation: string;
 };
 export const guides: Record<string, ToolGuide> = {
+  ...extraGuides,
   "plate-calculator": {
     purpose:
       "Set up a barbell from a planned total weight without doing the plate math between sets.",

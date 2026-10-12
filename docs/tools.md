@@ -17,6 +17,14 @@ your own 1–10 rating. Running pace divides elapsed time by distance. Weight
 conversion uses 0.45359237 kg per pound. Training percentages multiply a
 user-provided reference load by a percentage. None prescribe a workout.
 
+## More ways to plan and review
+
+- Interval session planner totals work and recovery, excluding rest after the final round.
+- Tempo set time multiplies repetitions by the time in each movement phase.
+- Finish time estimator multiplies distance by a matching per-mile or per-kilometer pace.
+- Training consistency compares completed sessions with planned sessions.
+- Training weight change shows a load difference and its percentage of the previous load.
+
 ## Nutrition planning
 
 - Calories from macros uses the general 4/4/9 factors for protein, carbohydrate, and fat.
@@ -24,6 +32,7 @@ user-provided reference load by a percentage. None prescribe a workout.
 - Protein per meal divides your existing daily target across meals.
 - Hydration progress compares recorded milliliters with your chosen goal.
 - Meal portion scaler multiplies per-serving label values by portions.
+- Recipe batch portions divides whole-recipe nutrition into equal portions.
 
 Examples are not personal dietary recommendations. These tools do not estimate
 calorie needs or prescribe weight-loss targets. Food-label rounding, fiber, and

@@ -135,6 +135,94 @@ export function calculate(
         { label: "Carbohydrate", value: v.portions * v.carbs, unit: "g" },
         { label: "Fat", value: v.portions * v.fat, unit: "g" },
       ];
+
+    case "interval-planner":
+      return [
+        {
+          label: "Total interval time",
+          value: (v.rounds * v.work + (v.rounds - 1) * v.rest) / 60,
+          unit: "minutes",
+        },
+        {
+          label: "Working time",
+          value: (v.rounds * v.work) / 60,
+          unit: "minutes",
+        },
+        {
+          label: "Recovery time",
+          value: ((v.rounds - 1) * v.rest) / 60,
+          unit: "minutes",
+        },
+      ];
+    case "tempo-time": {
+      const tempo = v.lower + v.bottom + v.lift + v.top;
+      if (tempo <= 0)
+        throw new Error(
+          "Enter a tempo with at least one phase greater than zero.",
+        );
+      return [
+        { label: "Time per rep", value: tempo, unit: "seconds" },
+        { label: "Time per set", value: tempo * v.reps, unit: "seconds" },
+      ];
+    }
+    case "finish-time": {
+      const pace = v.minutes * 60 + v.seconds;
+      if (pace <= 0) throw new Error("Enter a pace greater than zero.");
+      const total = Math.round(v.distance * pace);
+      return [
+        {
+          label: "Estimated finish",
+          value: `${Math.floor(total / 3600)}:${Math.floor((total % 3600) / 60)
+            .toString()
+            .padStart(2, "0")}:${(total % 60).toString().padStart(2, "0")}`,
+          unit: "hours:minutes:seconds",
+        },
+      ];
+    }
+    case "training-consistency":
+      return [
+        {
+          label: "Plan completed",
+          value: (v.completed / v.planned) * 100,
+          unit: "%",
+        },
+        {
+          label: "Sessions remaining",
+          value: Math.max(0, v.planned - v.completed),
+        },
+      ];
+    case "weight-change":
+      return [
+        {
+          label: "Load change",
+          value: v.current - v.previous,
+          unit: "same weight units",
+        },
+        {
+          label: "Percentage change",
+          value: ((v.current - v.previous) / v.previous) * 100,
+          unit: "%",
+        },
+      ];
+    case "recipe-batch":
+      return [
+        {
+          label: "Calories per portion",
+          value: v.calories / v.servings,
+          unit: "kcal",
+        },
+        {
+          label: "Protein per portion",
+          value: v.protein / v.servings,
+          unit: "g",
+        },
+        {
+          label: "Carbohydrate per portion",
+          value: v.carbs / v.servings,
+          unit: "g",
+        },
+        { label: "Fat per portion", value: v.fat / v.servings, unit: "g" },
+      ];
     default:
       throw new Error("Unknown calculator.");
   }

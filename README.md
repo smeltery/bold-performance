@@ -12,7 +12,7 @@
 A fast, accessible coaching website for Brock Jones and Bold Performance in
 Scottsdale, Arizona. Astro serves static pages; React powers the interactive toolkit. The intake prepares an email draft or
 sends through Formspree when configured. Includes responsive navigation, service information,
-SVG brand artwork, direct contact options, and 14 searchable training tools, dedicated coaching pages, and a detailed client intake.
+SVG brand artwork, direct contact options, and 20 searchable training tools, dedicated coaching pages, and a detailed client intake.
 Vercel hosts the static site and deploys pushes to `main`.
 
 ```sh

@@ -203,9 +203,9 @@ button:disabled {
   border: 0;
 }
 
-.icon.cactus {
-  color: #377b53;
-}
-footer .icon.cactus {
-  color: #8cbd99;
+.cactus-emoji {
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+  flex-shrink: 0;
 }

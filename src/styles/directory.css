@@ -29,6 +29,16 @@
   background: white;
   margin-bottom: 22px;
 }
+.directory-search {
+  border-radius: 6px;
+}
+.directory-search:focus-within {
+  border-color: #167e99;
+  box-shadow: 0 0 0 2px #167e9926;
+}
+.directory-search input:focus-visible {
+  outline: none;
+}
 .directory-search input {
   border: 0;
   background: none;

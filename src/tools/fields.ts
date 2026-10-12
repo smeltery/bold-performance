@@ -78,4 +78,36 @@ export const fields: Record<string, Field[]> = {
     field("carbs", "Carbs per serving (g)", 34, 0, 1000),
     field("fat", "Fat per serving (g)", 9, 0, 1000),
   ],
+  "interval-planner": [
+    field("rounds", "Rounds", 8, 1, 100, 1),
+    field("work", "Work per round (seconds)", 30, 1, 3600, 1),
+    field("rest", "Recovery between rounds (seconds)", 60, 0, 3600, 1),
+  ],
+  "tempo-time": [
+    field("reps", "Repetitions", 8, 1, 1000, 1),
+    field("lower", "Lowering (seconds)", 3, 0, 60),
+    field("bottom", "Bottom pause (seconds)", 1, 0, 60),
+    field("lift", "Lifting (seconds)", 1, 0, 60),
+    field("top", "Top pause (seconds)", 0, 0, 60),
+  ],
+  "finish-time": [
+    field("distance", "Distance (km or miles)", 5, 0.01, 1000, 0.01),
+    field("minutes", "Pace: whole minutes per km or mile", 6, 0, 120, 1),
+    field("seconds", "Pace: additional seconds", 0, 0, 59, 1),
+  ],
+  "training-consistency": [
+    field("planned", "Sessions planned", 12, 1, 1000, 1),
+    field("completed", "Sessions completed", 9, 0, 1000, 1),
+  ],
+  "weight-change": [
+    field("previous", "Previous load (your chosen unit)", 40, 0.01),
+    field("current", "Current load (same unit)", 45),
+  ],
+  "recipe-batch": [
+    field("servings", "Equal portions in the recipe", 4, 1, 100, 1),
+    field("calories", "Whole recipe calories (kcal)", 2000, 0, 100000),
+    field("protein", "Whole recipe protein (g)", 120, 0, 10000),
+    field("carbs", "Whole recipe carbohydrate (g)", 240, 0, 20000),
+    field("fat", "Whole recipe fat (g)", 60, 0, 10000),
+  ],
 };

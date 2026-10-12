@@ -118,7 +118,7 @@ test("rejects non-finite, out-of-range, and fractional count inputs", () => {
   ).toThrow();
 });
 test("directory searches across words and categories with unique URLs", () => {
-  expect(new Set(catalog.map((tool) => tool.slug)).size).toBe(14);
+  expect(new Set(catalog.map((tool) => tool.slug)).size).toBe(20);
   expect(
     matchingTools("protein", "Nutrition").map((tool) => tool.slug),
   ).toContain("protein-planner");
