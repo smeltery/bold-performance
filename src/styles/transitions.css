@@ -2,10 +2,10 @@
   navigation: auto;
 }
 ::view-transition-old(root) {
-  animation: page-out 180ms ease-in both;
+  animation: page-out 240ms ease-out both;
 }
 ::view-transition-new(root) {
-  animation: page-in 280ms ease-out both;
+  animation: page-in 340ms ease-out both;
 }
 @keyframes page-out {
   to {
@@ -30,5 +30,72 @@
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation: none;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  main {
+    transition:
+      opacity 180ms ease,
+      filter 180ms ease;
+  }
+  .is-navigating main {
+    opacity: 0.55;
+    filter: blur(3px);
+  }
+  .page-enter main {
+    animation: page-in 340ms ease-out backwards;
+  }
+  :is(#mobile-nav, #site-search) {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateY(8px);
+    transition:
+      opacity 220ms ease,
+      filter 220ms ease,
+      transform 220ms ease,
+      display 220ms allow-discrete,
+      overlay 220ms allow-discrete;
+  }
+  #mobile-nav {
+    transform: translateX(24px);
+  }
+  :is(#mobile-nav, #site-search)[open] {
+    opacity: 1;
+    filter: blur(0);
+    transform: none;
+  }
+  :is(#mobile-nav, #site-search)::backdrop {
+    opacity: 0;
+    transition:
+      opacity 220ms ease,
+      display 220ms allow-discrete,
+      overlay 220ms allow-discrete;
+  }
+  :is(#mobile-nav, #site-search)[open]::backdrop {
+    opacity: 1;
+  }
+  :is(#mobile-nav, #site-search)[open].is-closing {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateY(8px);
+  }
+  #mobile-nav[open].is-closing {
+    transform: translateX(24px);
+  }
+  :is(#mobile-nav, #site-search).is-closing::backdrop {
+    opacity: 0;
+  }
+  @starting-style {
+    :is(#mobile-nav, #site-search)[open] {
+      opacity: 0;
+      filter: blur(4px);
+      transform: translateY(8px);
+    }
+    #mobile-nav[open] {
+      transform: translateX(24px);
+    }
+    :is(#mobile-nav, #site-search)[open]::backdrop {
+      opacity: 0;
+    }
   }
 }

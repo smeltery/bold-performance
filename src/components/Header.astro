@@ -133,10 +133,11 @@ const links: { href: string; label: string; detail: string; icon: IconName }[] =
   </div>
 </dialog>
 <script>
+  import { closeDialog } from "../client/dialog";
   const button = document.querySelector<HTMLButtonElement>(".menu-toggle")!;
   const menu = document.querySelector<HTMLDialogElement>("#mobile-nav")!;
   function close() {
-    menu.close();
+    void closeDialog(menu);
   }
   button.addEventListener("click", () => {
     menu.showModal();

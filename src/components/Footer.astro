@@ -66,15 +66,5 @@ import Icon from "./Icon";
   </div>
 </footer>
 <script>
-  document.querySelector(".back-top")?.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
-        ? "instant"
-        : "smooth",
-    });
-    document
-      .querySelector<HTMLAnchorElement>(".brand")
-      ?.focus({ preventScroll: true });
-  });
+  import "../client/scroll-top";
 </script>

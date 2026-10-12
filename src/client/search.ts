@@ -1,3 +1,4 @@
+import { closeDialog } from "./dialog";
 const dialog = document.querySelector<HTMLDialogElement>("#site-search")!;
 const query = dialog.querySelector<HTMLInputElement>("input")!;
 const links = [
@@ -13,12 +14,12 @@ function filter() {
   dialog.querySelector("[role=status]")!.textContent = `${count} results`;
   dialog.querySelector<HTMLElement>(".search-empty")!.hidden = count > 0;
 }
-function open() {
+async function open() {
   if (dialog.open) return;
   opener = document.activeElement as HTMLElement;
   const menu = document.querySelector<HTMLDialogElement>("#mobile-nav");
   if (menu?.open) {
-    menu.close();
+    await closeDialog(menu);
     opener = document.querySelector(".menu-toggle");
   }
   requestAnimationFrame(() => {
@@ -35,13 +36,13 @@ document
 document.addEventListener("keydown", (event) => {
   if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
     event.preventDefault();
-    if (dialog.open) dialog.close();
+    if (dialog.open) closeDialog(dialog);
     else open();
   }
 });
 dialog
   .querySelector("[data-close-search]")!
-  .addEventListener("click", () => dialog.close());
+  .addEventListener("click", () => closeDialog(dialog));
 dialog.addEventListener("close", () => {
   document.body.style.overflow = "";
   opener?.focus();
@@ -55,7 +56,7 @@ dialog.addEventListener("click", (event) => {
       event.clientY < rect.top ||
       event.clientY > rect.bottom
     )
-      dialog.close();
+      closeDialog(dialog);
   }
 });
 query.addEventListener("input", filter);

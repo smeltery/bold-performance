@@ -38,7 +38,7 @@ CI and pre-commit both execute `scripts/check.sh` inside Flox. Dependencies are
 locked in `bun.lock`. Run `bun install` after dependency changes and commit the lock.
 
 Budgets in `scripts/budgets.json` allow 250 lines per source/documentation file,
-20 direct files per directory, and 7,600 total checked lines. Generated assets,
+20 direct files per directory, and 7,800 total checked lines. Generated assets,
 lockfiles, dependencies, and Flox-generated files are excluded. The validator reads
 tracked files, so stage new files before running the full check. Split by
 responsibility, not to satisfy arbitrary line counts.
@@ -47,5 +47,10 @@ Browser QA uses Maestri portals. Check 1440px desktop and 390px mobile layouts,
 menu focus containment, open/close and Escape, FAQ toggles, section anchors, overflow, and contact
 links. Test the optional form with a temporary ID and mocked network responses;
 only a verified recipient test proves real email delivery.
+
+Page navigation uses native view transitions plus a blur/fade fallback. Mobile
+navigation and search animate both opening and closing; Escape restores focus.
+Scroll-to-top eases over 650ms and stops on wheel, touch, or keyboard input.
+All motion respects the visitor’s reduced-motion setting.
 
 [All documentation](README.md)
