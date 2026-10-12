@@ -5,18 +5,21 @@ const services = [
     "01",
     "Build real strength.",
     "Personal training",
+    "Build my strength",
     "One-on-one coaching built around your goals. Develop strength, sharpen technique, and build the consistency that turns effort into progress.",
   ],
   [
     "02",
     "Move with confidence.",
     "Movement & mobility",
+    "Improve my movement",
     "Give the fundamentals the attention they deserve. Work on movement quality, control, and a stronger foundation for everyday life.",
   ],
   [
     "03",
     "Raise your game.",
     "Performance development",
+    "Train for my sport",
     "Bring intention to your training. Develop the strength, movement, and discipline to show up better for the demands of your sport.",
   ],
 ];
@@ -38,7 +41,7 @@ const services = [
     </p>
   </div>
   <div class="service-grid">
-    {services.map(([number, title, label, copy]) => (
+    {services.map(([number, title, label, action, copy]) => (
       <article>
         <div class="service-top">
           <span>{number}</span>
@@ -47,7 +50,7 @@ const services = [
         <p class="eyebrow">{label}</p>
         <h3>{title}</h3>
         <p>{copy}</p>
-        <a href="/contact">Let’s talk training</a>
+        <a href="/contact">{action}</a>
       </article>
     ))}
   </div>
