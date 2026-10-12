@@ -70,8 +70,9 @@
   border-color: #167e99;
   box-shadow: 0 0 0 2px #167e9926;
 }
-.search-input input:focus-visible {
+.search-input input:focus {
   outline: none;
+  box-shadow: none;
 }
 .search-input input {
   background: none;

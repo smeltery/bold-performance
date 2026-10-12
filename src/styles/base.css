@@ -119,8 +119,17 @@ em {
   color: #1e7184;
 }
 :focus-visible {
-  outline: 3px solid #167e99;
-  outline-offset: 5px;
+  outline: 2px solid #167e99;
+  outline-offset: 2px;
+}
+:where(
+  input:not([type="checkbox"], [type="radio"], [type="range"]),
+  textarea,
+  select
+):focus {
+  outline: 2px solid #167e99;
+  outline-offset: -1px;
+  box-shadow: 0 0 0 3px #167e991a;
 }
 .skip {
   position: fixed;

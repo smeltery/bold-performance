@@ -36,8 +36,9 @@
   border-color: #167e99;
   box-shadow: 0 0 0 2px #167e9926;
 }
-.directory-search input:focus-visible {
+.directory-search input:focus {
   outline: none;
+  box-shadow: none;
 }
 .directory-search input {
   border: 0;
