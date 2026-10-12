@@ -1,4 +1,4 @@
-# <img src="public/assets/logo.svg" width="56" alt="" /> Bold Performance
+# <picture><source media="(prefers-color-scheme: dark)" srcset="public/assets/mark-dark.svg"><img src="public/assets/logo.svg" width="72" alt=""></picture> Bold Performance
 
 [![CI](https://github.com/smeltery/bold-performance/actions/workflows/ci.yml/badge.svg)](https://github.com/smeltery/bold-performance/actions/workflows/ci.yml)
 ![Astro](https://img.shields.io/badge/Astro-7-BC52EE?logo=astro&logoColor=white)
