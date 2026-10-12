@@ -4,3 +4,5 @@ dist/
 .astro/
 node_modules/
 public/assets/
+.vercel/
+.openai/

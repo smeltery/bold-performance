@@ -92,7 +92,6 @@
   line-height: 1.6;
   letter-spacing: 0.08em;
 }
-.outlined-arrow {
-  font-size: 42px;
+.image-caption > .icon {
   color: var(--cyan);
 }

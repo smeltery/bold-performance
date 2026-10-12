@@ -13,7 +13,7 @@ flowchart LR
 ```
 
 Use **Start your journey** to jump to contact details. On mobile, **Menu** opens
-section links; select a link or press Escape to close it. FAQs expand when selected.
+section links; select a link or press Escape to close it. The menu keeps keyboard focus inside while open. FAQs expand when selected.
 Keyboard users can use the skip link to reach the main content.
 
 Calls, texts, and emails open the appropriate application on your device.
@@ -21,3 +21,5 @@ Instagram opens Brock's profile. If the inquiry form is enabled, a confirmation
 appears only after Formspree accepts the submission; errors offer direct contact.
 
 [All documentation](README.md)
+
+Use [Training tools](tools.md) to plan a week, calculate plates, or time rest.

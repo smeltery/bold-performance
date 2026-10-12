@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev --host 0.0.0.0",
-    "build": "astro build",
+    "build": "astro build && bun scripts/crawl.ts",
     "preview": "astro preview --host 0.0.0.0",
     "format": "prettier --write .",
-    "check": "prettier --check . && markdownlint-cli2 && bun scripts/validate.ts && astro check && bun test && astro build",
+    "check": "prettier --check . && markdownlint-cli2 && bun scripts/validate.ts && astro check && bun test && bun run build",
     "hooks": "git config core.hooksPath .githooks"
   },
   "dependencies": {

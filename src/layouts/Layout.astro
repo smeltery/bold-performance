@@ -1,5 +1,7 @@
 ---
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/footer.css";
 import "../styles/base.css";
 import "../styles/chrome.css";
 import "../styles/hero.css";
@@ -33,34 +35,6 @@ const {
     <main id="main">
       <slot />
     </main>
-    <footer>
-      <div class="footer-top">
-        <a class="footer-brand" href="/">
-          BOLD<span>PERFORMANCE</span>
-        </a>
-        <p>
-          Train with purpose.
-          <br />
-          Live with strength.
-        </p>
-        <div>
-          <a href="/#coaching">Coaching</a>
-          <a href="/#brock">Meet Brock</a>
-          <a href="/#contact">Get in touch</a>
-        </div>
-        <div>
-          <a href="https://www.instagram.com/bold_performanceaz/">
-            Instagram ↗
-          </a>
-          <a href="mailto:boldperformancellc@gmail.com">Email Brock ↗</a>
-          <span>Scottsdale, Arizona</span>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© {new Date().getFullYear()} Bold Performance</span>
-        <span>Rooted in faith. Driven by purpose.</span>
-        <a href="/privacy">Privacy</a>
-      </div>
-    </footer>
+    <Footer />
   </body>
 </html>

@@ -1,0 +1,118 @@
+footer {
+  padding: 64px 6vw 24px;
+  background: var(--ink);
+  color: #fff;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr 0.75fr 1fr 1.1fr;
+  gap: 40px;
+  padding-bottom: 50px;
+}
+.footer-logo {
+  display: block;
+  width: 220px;
+  margin-bottom: 12px;
+}
+.footer-top p {
+  color: #bdc4c2;
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 0 0 6px;
+}
+.footer-top > div {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 12px;
+}
+.footer-top .eyebrow {
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  color: #a8b5b2;
+  letter-spacing: 0.14em;
+  margin: 12px 0 8px;
+  line-height: 1.5;
+}
+.footer-top a:not(.footer-logo),
+.footer-location {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer-top a:not(.button):hover {
+  color: var(--cyan);
+}
+.footer-location {
+  color: #bdc4c2;
+  font-size: 11px;
+}
+.footer-invitation h2 {
+  font-size: 35px;
+  margin: 8px 0 4px;
+}
+.footer-invitation .button {
+  align-self: start;
+  font-size: 11px;
+  padding: 15px 18px;
+  justify-content: center;
+}
+.footer-bottom {
+  border-top: 1px solid #3e4546;
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 10px;
+  color: #bdc4c2;
+}
+.back-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  color: #fff;
+  background: transparent;
+  border: 1px solid #65716f;
+  font-size: 11px;
+  min-height: 44px;
+}
+.back-top:hover {
+  background: #303b3a;
+}
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+  }
+  .footer-bottom {
+    flex-wrap: wrap;
+    line-height: 1.8;
+  }
+  .footer-invitation {
+    justify-content: center;
+  }
+  footer {
+    padding: 55px 24px 25px;
+  }
+}
+@media (max-width: 420px) {
+  .footer-identity {
+    grid-column: 1/-1;
+  }
+  .footer-top {
+    column-gap: 18px;
+  }
+  .footer-invitation {
+    grid-column: 1/-1;
+    border-top: 1px solid #3e4546;
+    padding-top: 20px;
+  }
+  .footer-invitation h2 br {
+    display: none;
+  }
+  .footer-bottom > span {
+    flex-basis: 100%;
+  }
+}

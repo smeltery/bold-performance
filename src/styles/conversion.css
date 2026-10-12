@@ -105,3 +105,8 @@ details p {
   margin-top: 25px;
   font-size: 11px;
 }
+
+.contact-details > a {
+  justify-content: flex-start;
+  gap: 16px;
+}

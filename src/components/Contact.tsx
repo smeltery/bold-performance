@@ -10,6 +10,7 @@ export default function Contact({ formId }: { formId: string }) {
     try {
       const response = await fetch(`https://formspree.io/f/${formId}`, {
         method: "POST",
+        signal: AbortSignal.timeout(15000),
         body: new FormData(form),
         headers: { Accept: "application/json" },
       });
@@ -21,7 +22,11 @@ export default function Contact({ formId }: { formId: string }) {
     }
   }
   return (
-    <form onSubmit={submit}>
+    <form
+      action={`https://formspree.io/f/${formId}`}
+      method="POST"
+      onSubmit={submit}
+    >
       <label>
         Your name
         <input name="name" autoComplete="name" required maxLength={100} />
@@ -46,7 +51,7 @@ export default function Contact({ formId }: { formId: string }) {
         contacted about coaching. <a href="/privacy">Privacy policy</a>
       </p>
       <button className="button" disabled={status === "sending"}>
-        {status === "sending" ? "Sending…" : "Send your inquiry ↗"}
+        {status === "sending" ? "Sending…" : "Send your inquiry"}
       </button>
       <p role="status">
         {status === "success"

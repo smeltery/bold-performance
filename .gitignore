@@ -7,3 +7,7 @@ dist/
 .DS_Store
 .flox/run/
 .flox/cache/
+
+.vercel/
+.openai/
+.vercel

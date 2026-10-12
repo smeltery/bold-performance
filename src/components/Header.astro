@@ -1,4 +1,35 @@
-<header>
+---
+import Icon, { type IconName } from "./Icon";
+const links: { href: string; label: string; detail: string; icon: IconName }[] =
+  [
+    {
+      href: "/#coaching",
+      label: "Coaching",
+      detail: "Find your training focus",
+      icon: "dumbbell",
+    },
+    {
+      href: "/#brock",
+      label: "Meet Brock",
+      detail: "Experience behind the coaching",
+      icon: "user",
+    },
+    {
+      href: "/#approach",
+      label: "The approach",
+      detail: "A plan with purpose",
+      icon: "check",
+    },
+    {
+      href: "/tools",
+      label: "Training tools",
+      detail: "Plan, load, and time your session",
+      icon: "timer",
+    },
+  ];
+---
+
+<header id="top">
   <a class="brand" href="/" aria-label="Bold Performance home">
     <img src="/assets/logo.svg" alt="" width="86" height="44" />
     <img
@@ -10,45 +41,88 @@
     />
   </a>
   <nav aria-label="Main navigation">
-    <a href="/#coaching">Coaching</a>
-    <a href="/#brock">Meet Brock</a>
-    <a href="/#approach">The approach</a>
+    {links.map((link) => (
+      <a
+        href={link.href}
+        aria-current={Astro.url.pathname === link.href ? "page" : undefined}
+      >
+        {link.label}
+      </a>
+    ))}
   </nav>
   <a class="button small desktop-cta" href="/#contact">
-    Let’s get to work <span>↗</span>
+    <Icon name="message" /> Let’s get to work
   </a>
-  <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav">
-    Menu <span>+</span>
+  <button
+    class="menu-toggle"
+    aria-expanded="false"
+    aria-controls="mobile-nav"
+    aria-haspopup="dialog"
+  >
+    <Icon name="menu" /> Menu
   </button>
-  <nav id="mobile-nav" aria-label="Mobile navigation" hidden>
-    <a href="/#coaching">Coaching</a>
-    <a href="/#brock">Meet Brock</a>
-    <a href="/#approach">The approach</a>
-    <a href="/#contact">Start your journey ↗</a>
-  </nav>
 </header>
+<dialog id="mobile-nav" aria-label="Main menu">
+  <div class="menu-heading">
+    <span class="eyebrow">BOLD PERFORMANCE</span>
+    <button class="menu-close" aria-label="Close menu" autofocus>
+      <Icon name="close" />
+    </button>
+  </div>
+  <p class="menu-intro">
+    Your next step.
+    <br />
+    <em>Make it count.</em>
+  </p>
+  <nav aria-label="Mobile navigation">
+    {links.map((link) => (
+      <a href={link.href}>
+        <span class="menu-icon">
+          <Icon name={link.icon} />
+        </span>
+        <span>
+          {link.label}
+          <small>{link.detail}</small>
+        </span>
+      </a>
+    ))}
+  </nav>
+  <div class="menu-contact">
+    <a class="button" href="/#contact">
+      <Icon name="message" /> Talk training with Brock
+    </a>
+    <p>
+      <Icon name="location" size={15} /> Scottsdale, Arizona
+    </p>
+  </div>
+</dialog>
 <script>
   const button = document.querySelector<HTMLButtonElement>(".menu-toggle")!;
-  const menu = document.querySelector<HTMLElement>("#mobile-nav")!;
+  const menu = document.querySelector<HTMLDialogElement>("#mobile-nav")!;
   function close() {
-    button.setAttribute("aria-expanded", "false");
-    menu.hidden = true;
+    menu.close();
   }
   button.addEventListener("click", () => {
-    const open = button.getAttribute("aria-expanded") === "true";
-    button.setAttribute("aria-expanded", String(!open));
-    menu.hidden = open;
+    menu.showModal();
+    button.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
   });
+  menu.addEventListener("close", () => {
+    button.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+    button.focus();
+  });
+  menu.querySelector(".menu-close")!.addEventListener("click", close);
   menu
     .querySelectorAll("a")
     .forEach((link) => link.addEventListener("click", close));
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && !menu.hidden) {
-      close();
-      button.focus();
+  menu.addEventListener("click", (event) => {
+    if (event.target === menu) {
+      const bounds = menu.getBoundingClientRect();
+      if (event.clientX < bounds.left || event.clientX > bounds.right) close();
     }
   });
-  matchMedia("(min-width: 801px)").addEventListener("change", (event) => {
-    if (event.matches) close();
+  matchMedia("(min-width: 901px)").addEventListener("change", (event) => {
+    if (event.matches && menu.open) close();
   });
 </script>

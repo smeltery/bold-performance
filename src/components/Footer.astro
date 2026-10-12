@@ -1,0 +1,77 @@
+---
+import Icon from "./Icon";
+---
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-identity">
+      <a class="footer-logo" href="/" aria-label="Bold Performance home">
+        <img
+          src="/assets/logo-footer.svg"
+          alt="Bold Performance"
+          width="220"
+          height="87"
+          loading="lazy"
+        />
+      </a>
+      <p>
+        Train with purpose.
+        <br />
+        Live with strength.
+      </p>
+      <span class="footer-location">
+        <Icon name="location" size={16} /> Scottsdale, Arizona
+      </span>
+    </div>
+    <div>
+      <h2 class="eyebrow">EXPLORE</h2>
+      <a href="/#coaching">Coaching</a>
+      <a href="/#brock">Meet Brock</a>
+      <a href="/#approach">The approach</a>
+      <a href="/tools">Training tools</a>
+    </div>
+    <div>
+      <h2 class="eyebrow">LET’S CONNECT</h2>
+      <a href="tel:+13608272046">
+        <Icon name="phone" size={16} /> (360) 827-2046
+      </a>
+      <a href="mailto:boldperformancellc@gmail.com">
+        <Icon name="mail" size={16} /> Email Brock
+      </a>
+      <a href="https://www.instagram.com/bold_performanceaz/">
+        <Icon name="instagram" size={16} /> Instagram
+      </a>
+    </div>
+    <div class="footer-invitation">
+      <h2>
+        Make your
+        <br />
+        next rep count.
+      </h2>
+      <a class="button" href="/#contact">
+        Start a conversation
+      </a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© {new Date().getFullYear()} Bold Performance</span>
+    <span>Rooted in faith. Driven by purpose.</span>
+    <a href="/privacy">Privacy</a>
+    <button class="back-top">
+      Back to top <Icon name="up" size={16} />
+    </button>
+  </div>
+</footer>
+<script>
+  document.querySelector(".back-top")?.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "instant"
+        : "smooth",
+    });
+    document
+      .querySelector<HTMLAnchorElement>(".brand")
+      ?.focus({ preventScroll: true });
+  });
+</script>

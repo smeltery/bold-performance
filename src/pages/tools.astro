@@ -1,0 +1,59 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Icon from "../components/Icon";
+import Toolkit from "../tools/Toolkit";
+import "../styles/tools.css";
+import "../styles/tool-controls.css";
+---
+
+<Layout
+  title="Free Training Tools | Bold Performance"
+  description="Plan your training week, calculate barbell plates, and time your rest. Free fitness tools from Bold Performance. No account needed."
+>
+  <section class="section tools-page">
+    <div class="tools-heading">
+      <div>
+        <p class="eyebrow">THE BOLD PERFORMANCE TOOLKIT</p>
+        <h1>
+          A little structure.
+          <br />
+          <em>A stronger session.</em>
+        </h1>
+        <p>
+          Simple tools to take the guesswork out of your gym time.
+          <br />
+          Plan your week, load your bar, and make every rest count.
+        </p>
+      </div>
+      <aside>
+        <Icon name="check" size={26} />
+        <strong>Yours to use. Free to explore.</strong>
+        <p>
+          No account needed. Everything runs in your browser. Your inputs stay
+          on this page and reset when you reload.
+        </p>
+      </aside>
+    </div>
+    <Toolkit client:load />
+    <noscript>
+      <p>
+        Enable JavaScript to use the interactive training tools. You can still{" "}
+        <a href="/#contact">contact Brock</a> to discuss your training.
+      </p>
+    </noscript>
+    <div class="tools-closing">
+      <div>
+        <p class="eyebrow">TURN A PLAN INTO PROGRESS</p>
+        <h2>
+          The tools help.
+          <br />
+          The coaching makes it personal.
+        </h2>
+        <p>Bring your goals and questions. Build your next step with Brock.</p>
+      </div>
+      <a class="button" href="/#contact">
+        <Icon name="message" /> Talk about your training
+      </a>
+    </div>
+  </section>
+</Layout>

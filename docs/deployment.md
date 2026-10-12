@@ -1,13 +1,29 @@
 # Deployment and releases
 
-The site is static. Use any host that can serve `dist/` with directory index
-support. Configure Node 24, install with `bun install --frozen-lockfile`, build
-with `bun run build`, and publish `dist/`. No application server or database is
-required. Set the optional Formspree variable before building.
+## Vercel
 
-Deploy at the domain root. If deploying under a subdirectory, configure Astro's
-base and update root-relative links first. Configure the host to serve `404.html`
-for missing routes. HTTPS should be enabled by the hosting provider.
+The Vercel project is `bold-performance` in Nicholas Adamou's projects, connected
+to the public `smeltery/bold-performance` repository. Pushes to `main` create
+production deployments; pull requests get preview deployments. Vercel deployment
+and GitHub quality checks run independently, so verify both before sharing a release.
+
+`vercel.json` configures Astro, `bun install --frozen-lockfile`, `bun run build`,
+and the `dist/` output directory. Node 24 is declared in `package.json`. Security
+headers prevent framing and MIME sniffing and set a cross-origin referrer policy.
+
+Set `PUBLIC_FORMSPREE_ID` in Vercel's project environment variables before
+rebuilding to enable the inquiry form. No server, database, or runtime secret is
+needed. Add a custom domain in the Vercel dashboard when available.
+
+For a manual production deploy after checking changes:
+
+```sh
+vercel --prod --scope nicholas-adamous-projects
+```
+
+The site can also be hosted at the root of another static host. Publish `dist/`,
+serve directory indexes, and use `404.html` for missing routes. Configure Astro's
+base and root-relative links before deploying under a subdirectory.
 
 ## Automatic releases
 
