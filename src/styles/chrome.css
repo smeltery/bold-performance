@@ -29,7 +29,7 @@ header nav {
 }
 nav a:hover,
 nav a[aria-current] {
-  color: #258298;
+  color: #1e7184;
 }
 .icon {
   display: inline-block;
@@ -74,7 +74,7 @@ nav a[aria-current] {
   margin: 30px 0;
 }
 .menu-intro em {
-  color: #258298;
+  color: #1e7184;
 }
 #mobile-nav {
   margin: 0 0 0 auto;
@@ -120,7 +120,7 @@ nav a[aria-current] {
   display: grid;
   place-items: center;
   background: #e5eeeb;
-  color: #258298;
+  color: #1e7184;
 }
 .menu-contact {
   padding-top: 28px;
@@ -153,5 +153,26 @@ nav a[aria-current] {
   }
   .menu-toggle {
     display: flex;
+  }
+}
+@media (max-width: 370px) {
+  header {
+    padding: 0 16px;
+    gap: 10px;
+  }
+  .brand {
+    gap: 4px;
+  }
+  .brand > img:first-child {
+    width: 48px;
+  }
+  .brand .wordmark {
+    width: 98px;
+    height: 38px;
+  }
+  .menu-toggle {
+    padding: 10px;
+    gap: 8px;
+    flex-shrink: 0;
   }
 }

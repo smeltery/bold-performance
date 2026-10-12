@@ -53,7 +53,7 @@ summary::-webkit-details-marker {
   display: none;
 }
 summary span {
-  color: #258298;
+  color: #1e7184;
 }
 details[open] summary span {
   transform: rotate(45deg);

@@ -72,7 +72,7 @@ h3 {
 }
 em {
   font-style: normal;
-  color: #258298;
+  color: #1e7184;
 }
 .eyebrow {
   font-size: 11px;
@@ -116,7 +116,7 @@ em {
   padding-bottom: 6px;
 }
 .text-link:hover {
-  color: #258298;
+  color: #1e7184;
 }
 :focus-visible {
   outline: 3px solid #167e99;

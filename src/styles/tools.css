@@ -19,7 +19,7 @@
   max-width: 320px;
 }
 .tools-heading aside > .icon {
-  color: #258298;
+  color: #1e7184;
   display: block;
   margin-bottom: 15px;
 }
@@ -49,12 +49,12 @@
   font-weight: 600;
 }
 .tool-selector button[aria-pressed="true"] {
-  border-color: #258298;
+  border-color: #1e7184;
   background: #e6efeb;
-  box-shadow: inset 0 -3px #258298;
+  box-shadow: inset 0 -3px #1e7184;
 }
 .tool-selector .icon {
-  color: #258298;
+  color: #1e7184;
 }
 .tool-selector small {
   font-size: 10px;
@@ -70,7 +70,7 @@
 }
 .tool-workspace h2 {
   font-family: "DM Sans", sans-serif;
-  color: #258298;
+  color: #1e7184;
   font-size: 10px;
   line-height: 1.5;
 }

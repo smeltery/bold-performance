@@ -7,6 +7,8 @@
 ![Flox](https://img.shields.io/badge/environment-Flox-58A55C)
 [![License](https://img.shields.io/badge/license-PolyForm_Shield-blue)](LICENSE)
 
+[Visit the website](https://bold-performance.vercel.app) · [Training tools](https://bold-performance.vercel.app/tools)
+
 A fast, accessible coaching website for Brock Jones and Bold Performance in
 Scottsdale, Arizona. Astro serves static pages; React powers the optional
 Formspree inquiry form. Includes responsive navigation, service information,
