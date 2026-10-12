@@ -1,5 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { guides } from "../../tools/guides";
+import "../../styles/tool-guide.css";
 import { catalog } from "../../tools/catalog";
 import Icon from "../../components/Icon";
 import PlateCalculator from "../../tools/PlateCalculator";
@@ -16,6 +18,7 @@ export function getStaticPaths() {
   }));
 }
 const { tool } = Astro.props;
+const guide = guides[tool.slug];
 const related = catalog
   .filter((item) => item.slug !== tool.slug && item.category === tool.category)
   .slice(0, 3);
@@ -53,9 +56,27 @@ const related = catalog
         Enable JavaScript to update this tool. The values shown are examples.
       </p>
     </noscript>
+    <section class="tool-guide" aria-label="Tool guide">
+      <div>
+        <p class="eyebrow">PUT IT INTO PRACTICE</p>
+        <h2>How to use this tool.</h2>
+        <p>{guide.purpose}</p>
+        <ol>
+          {guide.steps.map((step) => (
+            <li>{step}</li>
+          ))}
+        </ol>
+      </div>
+      <aside class="tool-example">
+        <Icon name="check" size={24} />
+        <h3>A worked example.</h3>
+        <p>{guide.example}</p>
+        <span class="fine">Example inputs illustrate how the tool works.</span>
+      </aside>
+    </section>
     <div class="tool-explanation">
       <h2>Know what the numbers mean.</h2>
-      <p>{tool.note}</p>
+      <p>{guide.interpretation}</p>
       <p>
         Your inputs stay in this browser tab. Nothing is sent to Brock.
         Reloading resets your inputs.

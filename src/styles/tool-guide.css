@@ -1,0 +1,47 @@
+.tool-guide {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: clamp(28px, 5vw, 72px);
+  padding: 56px 0;
+  border-bottom: 1px solid var(--line);
+}
+.tool-guide h2 {
+  font-size: clamp(34px, 4vw, 48px);
+  margin-bottom: 20px;
+}
+.tool-guide p,
+.tool-guide li {
+  font-size: 15px;
+  line-height: 1.8;
+}
+.tool-guide ol {
+  padding-left: 22px;
+  margin: 24px 0 0;
+}
+.tool-guide li {
+  padding-left: 8px;
+  margin-bottom: 14px;
+}
+.tool-guide li::marker {
+  color: #1e7184;
+  font-weight: 700;
+}
+.tool-example {
+  align-self: start;
+  background: #e8eeea;
+  padding: clamp(24px, 3vw, 40px);
+  border-top: 3px solid var(--cyan);
+}
+.tool-example h3 {
+  margin: 20px 0 16px;
+}
+.tool-example .fine {
+  color: var(--muted);
+  line-height: 1.6;
+}
+@media (max-width: 700px) {
+  .tool-guide {
+    grid-template-columns: 1fr;
+    padding: 36px 0;
+  }
+}
