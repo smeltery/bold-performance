@@ -23,7 +23,7 @@
       ],
       [
         "How do I get started?",
-        "Send a text, call, or email Brock using the details below. Share a little about your goals and ask about the next step.",
+        "Start with the training introduction on our contact page. Share your goals, experience, preferred coaching, and availability so Brock has the context to discuss your next step.",
       ],
     ].map(([question, answer]) => (
       <details>
@@ -32,6 +32,13 @@
           <span>+</span>
         </summary>
         <p>{answer}</p>
+        {question === "How do I get started?" && (
+          <p>
+            <a class="text-link" href="/contact">
+              Tell Brock about your training goals
+            </a>
+          </p>
+        )}
       </details>
     ))}
   </div>

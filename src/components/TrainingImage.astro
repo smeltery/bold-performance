@@ -1,0 +1,65 @@
+---
+const { variant = "strength" } = Astro.props;
+const strength = variant === "strength";
+---
+
+<figure class="training-image">
+  <img
+    src={strength ? "/assets/gym-strength.jpg" : "/assets/gym-space.jpg"}
+    alt={
+      strength
+        ? "Dumbbells and cable equipment in a naturally lit gym"
+        : "Weight benches and treadmills beside large gym windows"
+    }
+    width="1200"
+    height="750"
+    loading="lazy"
+    decoding="async"
+  />
+  <figcaption>
+    <span>
+      {strength
+        ? "Build a stronger foundation."
+        : "Make room for purposeful training."}
+    </span>
+    <small>
+      Training inspiration ·{" "}
+      <a
+        href={
+          strength
+            ? "https://unsplash.com/photos/U2q73PfHFpM"
+            : "https://unsplash.com/photos/20jX9b35r_M"
+        }
+      >
+        {strength ? "Brett Jordan" : "Risen Wang"} / Unsplash
+      </a>
+    </small>
+  </figcaption>
+</figure>
+<style>
+  .training-image {
+    margin: 0;
+    padding: 0 max(6vw, 24px) 64px;
+  }
+  .training-image img {
+    width: 100%;
+    height: clamp(230px, 32vw, 460px);
+    object-fit: cover;
+  }
+  .training-image figcaption {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 16px;
+    font-size: 13px;
+  }
+  .training-image small {
+    color: var(--muted);
+    font-size: 11px;
+  }
+  .training-image a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+</style>

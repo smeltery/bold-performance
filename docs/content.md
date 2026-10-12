@@ -25,6 +25,15 @@ The Meet Brock sections on the homepage and about page share
 `src/components/Coach.astro`. The portrait at `public/assets/brock-jones.png`
 is the user-supplied baseball photograph, displayed in its original proportions.
 
+Additional locally stored Unsplash photographs appear only on the coaching and
+approach pages: [Brett Jordan’s gym equipment](https://unsplash.com/photos/U2q73PfHFpM)
+and [Risen Wang’s gym interior](https://unsplash.com/photos/20jX9b35r_M).
+They illustrate training environments, not Brock’s facility.
+
+The Diamondbacks and MiLB SVG marks come from MLB’s official asset service,
+as linked on Brock’s MiLB profile. They identify his playing background and
+career record; they are not Bold Performance partners or endorsements.
+
 ## Editorial rules
 
 Credentials and contact information come from the supplied flyer and Instagram

@@ -19,6 +19,11 @@ const detail = pageDetails[page];
       </article>
     ))}
   </div>
+  {page !== "contact" && (
+    <a class="text-link" href="/contact">
+      Start your training introduction
+    </a>
+  )}
 </section>
 <style>
   .page-details {
@@ -31,6 +36,9 @@ const detail = pageDetails[page];
   .detail-intro h2 {
     font-size: clamp(40px, 4vw, 60px);
     margin-bottom: 24px;
+  }
+  .page-details > a {
+    margin-top: 28px;
   }
   .detail-grid {
     display: grid;
