@@ -40,3 +40,6 @@ Formspree dashboard for spam controls and submissions. Review the privacy page
 before enabling direct delivery. No inquiry answers are stored in the browser.
 
 [All documentation](README.md)
+
+Confirmed direct submissions show a brief confetti celebration. Email drafts and
+failed submissions do not trigger it. Reduced-motion preferences disable confetti.

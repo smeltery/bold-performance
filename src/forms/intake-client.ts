@@ -1,3 +1,4 @@
+import { celebrate } from "../client/confetti";
 import { introduction, emailDraft } from "./intake";
 const form = document.querySelector<HTMLFormElement>("#training-intake")!;
 const status = document.querySelector<HTMLElement>("#intake-status")!;
@@ -71,6 +72,7 @@ form.addEventListener("submit", async (event) => {
     });
     if (!response.ok) throw new Error("Submission failed");
     status.textContent = "Thanks! Your introduction has been sent to Brock.";
+    celebrate();
     form.reset();
     conditions();
   } catch {

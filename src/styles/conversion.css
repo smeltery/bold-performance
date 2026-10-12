@@ -28,41 +28,6 @@
   font-size: 13px;
   color: #bdc4c2;
 }
-.faq {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 70px;
-}
-.faq details {
-  border-bottom: 1px solid var(--line);
-  padding: 22px 0;
-}
-.faq details:first-child {
-  border-top: 1px solid var(--line);
-}
-summary {
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  font-size: 14px;
-  font-weight: 600;
-  list-style: none;
-}
-summary::-webkit-details-marker {
-  display: none;
-}
-summary span {
-  color: #1e7184;
-}
-details[open] summary span {
-  transform: rotate(45deg);
-}
-details p {
-  font-size: 13px;
-  color: var(--muted);
-  margin: 16px 32px 0 0;
-}
 .contact {
   background: #3f9eb4;
   display: grid;

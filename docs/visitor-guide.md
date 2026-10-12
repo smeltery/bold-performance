@@ -30,3 +30,7 @@ Use arrow keys to move through results, Enter to open one, and Escape to close s
 The training introduction collects your goals, experience, preferred coaching, and
 availability. Without direct form delivery configured, review the generated introduction
 and send it through your email app. You can also download a copy. Nothing is sent automatically.
+
+FAQs use expandable cards that work with the keyboard. The mobile menu includes
+the brand logo, page links, coaching context, and a link to the training introduction.
+Supported browsers use a short blur between pages; reduced-motion settings disable it.
