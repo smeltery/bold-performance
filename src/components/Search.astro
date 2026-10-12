@@ -14,7 +14,7 @@ const entries = [
     title,
     href,
     description,
-    group: "Pages",
+    group: href === "/contact" ? "Contact" : "Pages",
   })),
   ...catalog.map((tool) => ({
     title: tool.title,
@@ -23,6 +23,7 @@ const entries = [
     group: "Tools",
   })),
 ];
+const groups = ["Pages", "Tools", "Contact"];
 ---
 
 <dialog id="site-search" aria-labelledby="search-title">
@@ -46,23 +47,55 @@ const entries = [
       aria-controls="search-results"
     />
   </label>
-  <div class="search-results" id="search-results">
-    {entries.map((entry) => (
-      <a
-        href={entry.href}
-        data-search={`${entry.title} ${entry.description}`.toLowerCase()}
+  <div class="search-filters" role="group" aria-label="Filter search results">
+    {["All", ...groups].map((group) => (
+      <button
+        type="button"
+        data-search-filter={group}
+        aria-pressed={group === "All"}
+        aria-controls="search-results"
       >
-        <span>
-          <strong>{entry.title}</strong>
-          <small>
-            {entry.description.includes("Scottsdale") && (
-              <Icon name="cactus" size={14} />
-            )}{" "}
-            {entry.description}
-          </small>
-        </span>
-        <span class="search-group">{entry.group}</span>
-      </a>
+        {group}
+      </button>
+    ))}
+  </div>
+  <div class="search-results" id="search-results">
+    {groups.map((group) => (
+      <section
+        data-search-section={group}
+        aria-labelledby={`search-${group.toLowerCase()}`}
+      >
+        <h3 id={`search-${group.toLowerCase()}`}>{group}</h3>
+        {entries
+          .filter((entry) => entry.group === group)
+          .map((entry) => (
+            <a
+              href={entry.href}
+              data-group={group}
+              data-search={`${entry.title} ${entry.description} ${group}`.toLowerCase()}
+            >
+              <Icon
+                name={
+                  group === "Pages"
+                    ? "activity"
+                    : group === "Tools"
+                      ? "timer"
+                      : "message"
+                }
+                size={18}
+              />
+              <span>
+                <strong>{entry.title}</strong>
+                <small>
+                  {entry.description.includes("Scottsdale") && (
+                    <Icon name="cactus" size={14} />
+                  )}{" "}
+                  {entry.description}
+                </small>
+              </span>
+            </a>
+          ))}
+      </section>
     ))}
   </div>
   <p class="search-empty" hidden>
