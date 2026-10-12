@@ -39,8 +39,8 @@ technical metadata cannot guarantee a ranking or a particular audit score.
 
 ## Vercel Web Analytics
 
-The shared layout includes Vercel's Astro analytics component. Enable Web
-Analytics for this project in Vercel and redeploy when changing its configuration.
+The shared layout includes Vercel's Astro analytics component. Web
+Analytics is enabled for this project on Vercel’s Hobby plan. Redeploy after changing its configuration.
 It measures page views; no custom events collect intake answers or tool inputs.
 The privacy page describes the integration. View results in the project's
 Vercel Web Analytics dashboard. Browser blockers can prevent some visits from

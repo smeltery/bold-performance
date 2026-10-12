@@ -46,9 +46,11 @@ await Bun.write(
 );
 await Bun.write("dist/llms-full.txt", documents.join("\n\n"));
 const revision = Bun.spawnSync(["git", "log", "-1", "--format=%cI"]);
-if (revision.exitCode)
-  throw new Error("Cannot determine sitemap revision date");
-const lastmod = revision.stdout.toString().trim();
+// Uploaded Vercel builds have no Git history; use their publication date.
+const lastmod =
+  revision.exitCode === 0
+    ? revision.stdout.toString().trim()
+    : new Date().toISOString();
 await Bun.write(
   "dist/sitemap.xml",
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${routes.map((route) => `<url><loc>${site.url}${route}</loc><lastmod>${lastmod}</lastmod></url>`).join("")}</urlset>\n`,
